@@ -10,6 +10,10 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] private Transform _parentCubes;
     [SerializeField] private GameObject _ground;
 
+    [Header("Spawn Settings")]
+    [SerializeField] private float _spawnYPosition = 0.5f;
+    [SerializeField] private float _spawnOffsetFromEdge = 1f;
+
     private List<Cube> _spawnedCubes = new List<Cube>();
     private List<Bomb> _spawnedBombs = new List<Bomb>();
     private List<Vector3> _spawnPositions = new List<Vector3>();
@@ -64,19 +68,15 @@ public class LevelBuilder : MonoBehaviour
 
     private Vector3 GetRandomPointOnGround()
     {
-        float offset = 1;
-
         Vector3 groundSize = _groundBounds.size;
         float randomX = UnityEngine.Random.Range(
-            _groundBounds.min.x + offset,
-            _groundBounds.max.x - offset);
+            _groundBounds.min.x + _spawnOffsetFromEdge,
+            _groundBounds.max.x - _spawnOffsetFromEdge);
         float randomZ = UnityEngine.Random.Range(
-            _groundBounds.min.z + offset,
-            _groundBounds.max.z - offset);
+            _groundBounds.min.z + _spawnOffsetFromEdge,
+            _groundBounds.max.z - _spawnOffsetFromEdge);
 
-        float yPosition = 0.5f;
-
-        return new Vector3(randomX, yPosition, randomZ);
+        return new Vector3(randomX, _spawnYPosition, randomZ);
     }
 
     private bool IsPositionValid(Vector3 position)

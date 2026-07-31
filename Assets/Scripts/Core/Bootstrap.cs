@@ -4,42 +4,27 @@ using Zenject;
 
 public class Bootstrap : MonoBehaviour
 {
-    private const string LevelDataKey = "LevelData";
+    private const string LEVEL_DATA_KEY = "LevelData";
+    private float INITIAL_DELAY = 0.5f;
 
     [SerializeField] private LevelDataSO[] _levelsData;
     [SerializeField] private LoadingScreenView _loadingScreen;
     [SerializeField] private LevelBuilder _levelBuilder;
     [SerializeField] private LoseScreenView _loseScreenView;
     [SerializeField] private ProgressView _progressView;
-    
-    private CubeCounter _cubeCounter;
+    [SerializeField] private FallDetector _fallDetector;
+    [SerializeField] private LoseController _loseController;
+
+    [Inject] private CubeCollector _cubeCollector;
+    [Inject] private SceneLoader _sceneLoader;
 
     private LevelDataSO _currentLevelData;
-    private float _delay = 0.5f;
     private WaitForSeconds _delayLoading;
 
-    [Inject]
-    public void Construct(CubeCounter cubeCounter)
+    private void Start()
     {
-        _cubeCounter = cubeCounter;
-    }
-
-    void Start()
-    {
-        _delayLoading = new WaitForSeconds(_delay);
-
-        if (PlayerPrefs.HasKey(LevelDataKey))
-        {
-            _currentLevelData = _levelsData[PlayerPrefs.GetInt(LevelDataKey)];
-        }
-        else
-        {
-            PlayerPrefs.SetInt(LevelDataKey, GetRandomLevel());
-            _currentLevelData = _levelsData[PlayerPrefs.GetInt(LevelDataKey)];
-        }
-
-        if (_cubeCounter == null)
-            Debug.Log("null");
+        _delayLoading = new WaitForSeconds(INITIAL_DELAY);
+        _currentLevelData = GetLevelData();
 
         StartCoroutine(StartingGame(_currentLevelData));
     }
@@ -47,9 +32,11 @@ public class Bootstrap : MonoBehaviour
     private IEnumerator StartingGame(LevelDataSO levelData)
     {
         _loadingScreen.Initialize();
-        _cubeCounter.Initialize(levelData);
+        _sceneLoader.Initialize();
+        _loseController.Initialize();
+        _cubeCollector.Initialize(levelData, _fallDetector);
         _progressView.Initialize(levelData.TotalCubes);
-        _progressView.OnUpdateCounter(_cubeCounter.CountCubes, levelData.TotalCubes);
+        _progressView.OnUpdateCounter(_cubeCollector.CurrentCubeCount, levelData.TotalCubes);
         _loseScreenView.Initialize();
         _loadingScreen.Show();
         yield return _delayLoading;
@@ -62,8 +49,12 @@ public class Bootstrap : MonoBehaviour
         _loadingScreen.Hide();
     }
 
-    private int GetRandomLevel()
+    private LevelDataSO GetLevelData()
     {
-        return Random.Range(0, _levelsData.Length - 1);
+        if (PlayerPrefs.HasKey(LEVEL_DATA_KEY))
+            return _levelsData[PlayerPrefs.GetInt(LEVEL_DATA_KEY)];
+
+        PlayerPrefs.SetInt(LEVEL_DATA_KEY, Random.Range(0, _levelsData.Length - 1));
+        return _levelsData[PlayerPrefs.GetInt(LEVEL_DATA_KEY)];
     }
 }

@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0595528fdfee8ff48a73c060a77abb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameSettings: {fileID: 11400000, guid: 8517720b0497d0d4a8e713ddb1aa6714, type: 2}
   _renderer: {fileID: 2904459242614276748}
+  _rigidBody: {fileID: 3415745507644736658}
 --- !u!54 &3415745507644736658
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -125,7 +125,6 @@ GameObject:
   - component: {fileID: 8073067195472032505}
   - component: {fileID: 3544297207048374328}
   - component: {fileID: 3274793083882829400}
-  - component: {fileID: 3456797986339166325}
   - component: {fileID: 6674155323045484950}
   - component: {fileID: 464323053982600569}
   m_Layer: 0
@@ -165,7 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fallPoint: {fileID: 7174530357454531985}
-  _dropHandler: {fileID: 3456797986339166325}
 --- !u!114 &3274793083882829400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,19 +177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 6674155323045484950}
-  _gameSettings: {fileID: 11400000, guid: 8517720b0497d0d4a8e713ddb1aa6714, type: 2}
---- !u!114 &3456797986339166325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7763851315656838593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d29af94c75d278f4c89dfbdc0f09e4cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _gameSettings: {fileID: 11400000, guid: 8517720b0497d0d4a8e713ddb1aa6714, type: 2}
 --- !u!54 &6674155323045484950
 Rigidbody:

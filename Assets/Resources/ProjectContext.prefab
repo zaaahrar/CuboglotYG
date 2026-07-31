@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e854604e198e9be45a88654e7d690b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cubeCounter: {fileID: 3398705072513607858, guid: c20f86f60cac68d45b9e217d25aaba79, type: 3}
+  _cubeCounter: {fileID: 7801037776498707390, guid: c20f86f60cac68d45b9e217d25aaba79, type: 3}
   _colorParser: {fileID: 5200797987686871862, guid: f928419506027a244912651810f15a15, type: 3}
   _goldHandler: {fileID: 5672345698912303419, guid: 24d99b03e3cd3a442ba7a07031f970e6, type: 3}
+  _sceneLoader: {fileID: 8000564391443023353, guid: 830a66bf397654843b190cb08fcc4471, type: 3}

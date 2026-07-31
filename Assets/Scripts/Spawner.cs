@@ -1,20 +1,24 @@
 using UnityEngine;
+using Zenject;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Cube _cube;
-    [SerializeField] private Bomb _bomb;
+    [Inject] private DiContainer _diContainer;
+
+    [SerializeField] private Cube _cubePrefab;
+    [SerializeField] private Bomb _bombPrefab;
 
     public Cube SpawnCube(Vector3 position, Transform parent)
     {
-        Cube cube = Instantiate(_cube, position, Quaternion.identity, parent);
+        var gameObject = _diContainer.InstantiatePrefab(_cubePrefab, position, Quaternion.identity, parent);
+        Cube cube = gameObject.GetComponent<Cube>();
         cube.Initialize();
         return cube;
     }
 
     public Bomb SpawnBomb(Vector3 position, Transform parent)
     {
-        Bomb bomb = Instantiate(_bomb, position, _bomb.transform.rotation, parent);
+        Bomb bomb = Instantiate(_bombPrefab, position, _bombPrefab.transform.rotation, parent);
         return bomb;
     }
 }

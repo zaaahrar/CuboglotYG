@@ -1,50 +1,37 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System;
-using UnityEngine.SceneManagement;
 
 public class LoseScreenView : MonoBehaviour
 {
-    private const int GameplayScene = 1;
-
+    [SerializeField] private LoseController _controller;
     [SerializeField] private GameObject _loseScreen;
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitMenuButton;
-    [SerializeField] private FallObjectsTriggerCheker _triggerChecker;
 
     public void Initialize()
     {
-        _restartButton.onClick.AddListener(OnRestartingGame);
+        _restartButton.onClick.AddListener(OnRestarting);
         _exitMenuButton.onClick.AddListener(OnExitInMenu);
-        _triggerChecker.CollectBomb += OnGameLose;
+
+        _controller.ShowWindow += OnShow;
+        _controller.HideWindow += OnHide;
     }
 
     private void OnDisable()
     {
-        _restartButton.onClick.RemoveListener(OnRestartingGame);
+        _restartButton.onClick.RemoveListener(OnRestarting);
         _exitMenuButton.onClick.RemoveListener(OnExitInMenu);
-        _triggerChecker.CollectBomb -= OnGameLose;
+
+
+        _controller.ShowWindow -= OnShow;
+        _controller.HideWindow -= OnHide;
     }
 
-    public void OnGameLose()
-    {
-        Time.timeScale = 0;
-        _loseScreen.SetActive(true);
-    }
+    private void OnExitInMenu() => _controller.ExitInMenu();
 
-    private void OnExitInMenu()
-    {
-        Debug.Log("Выход в меню.");
-    }
+    private void OnRestarting() => _controller.RestartGame();
 
-    private void OnRestartingGame()
-    {
-        Hide();
-        SceneManager.LoadScene(GameplayScene);
-    }
-    private void Hide()
-    {
-        Time.timeScale = 1;
-        _loseScreen.SetActive(false);
-    }
+    private void OnHide() => _loseScreen.SetActive(false);
+
+    private void OnShow() => _loseScreen.SetActive(true);
 }

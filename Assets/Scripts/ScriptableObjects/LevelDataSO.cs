@@ -9,6 +9,7 @@ public class LevelDataSO : ScriptableObject
     public int TotalCubes = 50;
     public int TotalBombs;
     public int TimeLimit = 60;
+    public PixelArtData PixelArt;
 
     public void OnValidate() => TotalCubes = GetTotalCubes();
 

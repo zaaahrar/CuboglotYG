@@ -5,7 +5,7 @@ using Zenject;
 
 public class ProgressView : MonoBehaviour
 {
-    [Inject] private CubeCounter _cubeCounter;
+    [Inject] private CubeCollector _cubeCounter;
     [SerializeField] private TMP_Text _progressText;
     [SerializeField] private Slider _progressSlider;
     
@@ -13,10 +13,10 @@ public class ProgressView : MonoBehaviour
     {
         _progressSlider.value = 0;
         _progressSlider.maxValue = maxCubes;
-        _cubeCounter.UpdateCubesCounter += OnUpdateCounter;
+        _cubeCounter.ProgressUpdated += OnUpdateCounter;
     }
 
-    private void OnDisable() => _cubeCounter.UpdateCubesCounter -= OnUpdateCounter;
+    private void OnDisable() => _cubeCounter.ProgressUpdated -= OnUpdateCounter;
 
     public void OnUpdateCounter(int count, int maxCubes)
     {

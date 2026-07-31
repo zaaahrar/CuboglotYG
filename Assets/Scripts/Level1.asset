@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelNumber: 1
   CubeTypes:
-  - CurrentColor: 0
-    CountCubes: 15
   - CurrentColor: 1
-    CountCubes: 15
-  TotalCubes: 30
-  TotalBombs: 4
+    CountCubes: 34
+  - CurrentColor: 4
+    CountCubes: 101
+  - CurrentColor: 0
+    CountCubes: 3
+  TotalCubes: 138
+  TotalBombs: 5
   TimeLimit: 60
+  PixelArt: {fileID: 11400000, guid: b5808d35133ad454daff10918740abaa, type: 2}
