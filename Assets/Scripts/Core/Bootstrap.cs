@@ -14,6 +14,8 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private ProgressView _progressView;
     [SerializeField] private FallDetector _fallDetector;
     [SerializeField] private LoseController _loseController;
+    [SerializeField] private Timer _timer;
+    [SerializeField] private TimerView _timerView;
 
     [Inject] private CubeCollector _cubeCollector;
     [Inject] private SceneLoader _sceneLoader;
@@ -32,11 +34,13 @@ public class Bootstrap : MonoBehaviour
     private IEnumerator StartingGame(LevelDataSO levelData)
     {
         _loadingScreen.Initialize();
-        _sceneLoader.Initialize();
+        _sceneLoader.Initialize(_timer);
         _loseController.Initialize();
         _cubeCollector.Initialize(levelData, _fallDetector);
         _progressView.Initialize(levelData.TotalCubes);
         _progressView.OnUpdateCounter(_cubeCollector.CurrentCubeCount, levelData.TotalCubes);
+        _timerView.Initialize(levelData);
+        _timer.Initialize(levelData);
         _loseScreenView.Initialize();
         _loadingScreen.Show();
         yield return _delayLoading;
@@ -47,6 +51,7 @@ public class Bootstrap : MonoBehaviour
         _loadingScreen.ChangeSlider(100);
         yield return _delayLoading;
         _loadingScreen.Hide();
+        StartCoroutine(_timer.StartTimer());
     }
 
     private LevelDataSO GetLevelData()
