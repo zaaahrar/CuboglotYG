@@ -9,6 +9,7 @@ public class PixelArtBuilder : MonoBehaviour
     [SerializeField] private LevelDataSO _levelData;
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Transform _parentCubes;
+    [SerializeField] private WinController _winController;
 
     private List<Cube> _builtCubes = new List<Cube>();
     private bool _isBuilding = false;
@@ -33,7 +34,7 @@ public class PixelArtBuilder : MonoBehaviour
                         yield return null;
                         float xPosition = pixelArt.Pixels[i].X * pixelArt.PixelSize;
                         float yPosition = pixelArt.Pixels[i].Y * pixelArt.PixelSize;
-                        Vector3 position = new Vector3(xPosition, yPosition, 0);
+                        Vector3 position = new Vector3(xPosition, yPosition, _parentCubes.transform.position.z);
                         Cube cube = _spawner.SpawnCube(position, _parentCubes);
                         cube.SetColor(color);
                         cube.name = i.ToString();
@@ -46,16 +47,15 @@ public class PixelArtBuilder : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
 
         _isBuilding = false;
+        _winController.Win(_cubeCounter.CurrentCubeCount, 50);
 
-        foreach(var cube in _builtCubes)
+        foreach (var cube in _builtCubes)
         {
             cube.SetKinematic(_isBuilding);
         }
-
-        //Вывод информации.
     }
 
     [ContextMenu("GetColors")]
