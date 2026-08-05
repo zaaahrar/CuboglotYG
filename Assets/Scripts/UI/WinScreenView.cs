@@ -16,6 +16,7 @@ public class WinScreenView : MonoBehaviour
     [SerializeField] private TMP_Text _goldText;
     [SerializeField] private Button _exitInMenuButton;
     [SerializeField] private Button _nextLevelButton;
+    [SerializeField] private GameObject[] _stars;
 
     [Header("Animation")]
     [SerializeField] private float _showDuration;
@@ -29,6 +30,9 @@ public class WinScreenView : MonoBehaviour
         _controller.ShowWinScreen += OnShow;
         _exitInMenuButton.onClick.AddListener(_sceneLoader.LoadMainMenuScene);
         _nextLevelButton.onClick.AddListener(_sceneLoader.LoadGameplayScene);
+
+        for (int i = 0; i < _stars.Length; i++)
+            _stars[i].gameObject.SetActive(false);
     }
 
     private void OnDisable()
@@ -39,10 +43,18 @@ public class WinScreenView : MonoBehaviour
         _nextLevelButton.onClick.RemoveListener(_sceneLoader.LoadGameplayScene);
     }
 
-    private void OnUpdateScreen(int cubesCollect, int gold)
+    private void OnUpdateScreen(int cubesCollect, int totalCubes, int gold, int stars)
     {
-        _collectCubesText.text = $"{cubesCollect}/{_levelData.TotalCubes}";
+        _collectCubesText.text = $"{cubesCollect}/{totalCubes}";
+
+        if (stars != 0)
+        {
+            for(int i = 0; i < stars; i++)
+                _stars[i].gameObject.SetActive(true);
+        }
+
         _goldText.text = gold.ToString();
+
     }
 
     private void OnShow()
@@ -51,4 +63,6 @@ public class WinScreenView : MonoBehaviour
         _winScreen.SetActive(true);
         _rectTransform.DOAnchorPosY(0, _showDuration);
     }
+
+
 }

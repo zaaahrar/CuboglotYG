@@ -1,11 +1,13 @@
 using UnityEngine;
 using Zenject;
 using System.Collections;
+using System;
 using System.Collections.Generic;
 
 public class PixelArtBuilder : MonoBehaviour
 {
     [Inject] private CubeCollector _cubeCounter;
+    [Inject] private GameSettingsSO _settings;
     [SerializeField] private LevelDataSO _levelData;
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Transform _parentCubes;
@@ -13,8 +15,18 @@ public class PixelArtBuilder : MonoBehaviour
 
     private List<Cube> _builtCubes = new List<Cube>();
     private bool _isBuilding = false;
+    private WaitForSeconds _postBuildDelay;
+    private WaitForSeconds _blockPlacementDelay;
 
-    private void Start() => StartCoroutine(BuildingPixelArt());
+    private void Start()
+    {
+        if (_settings == null)
+            throw new ArgumentException();
+
+        StartCoroutine(BuildingPixelArt());
+        _postBuildDelay = new WaitForSeconds(_settings.PostBuildDelay);
+        _blockPlacementDelay = new WaitForSeconds(_settings.BlockPlacementDelay);
+    }
 
     private IEnumerator BuildingPixelArt()
     {
@@ -31,7 +43,7 @@ public class PixelArtBuilder : MonoBehaviour
                 {
                     if (pixelArt.Pixels[i].ColorPixel == color)
                     {
-                        yield return null;
+                        yield return _blockPlacementDelay;
                         float xPosition = pixelArt.Pixels[i].X * pixelArt.PixelSize;
                         float yPosition = pixelArt.Pixels[i].Y * pixelArt.PixelSize;
                         Vector3 position = new Vector3(xPosition, yPosition, _parentCubes.transform.position.z);
@@ -47,10 +59,10 @@ public class PixelArtBuilder : MonoBehaviour
             }
         }
 
-        yield return new WaitForSeconds(3);
+        yield return _postBuildDelay;
 
         _isBuilding = false;
-        _winController.Win(_cubeCounter.CurrentCubeCount, 50);
+        _winController.Win(_cubeCounter.CurrentCubeCount);
 
         foreach (var cube in _builtCubes)
         {

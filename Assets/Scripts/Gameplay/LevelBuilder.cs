@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class LevelBuilder : MonoBehaviour
 {
-    [SerializeField] private GameSettingsSO _gameSettings;
+    [Inject] private GameSettingsSO _gameSettings;
+
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Transform _parentCubes;
     [SerializeField] private GameObject _ground;

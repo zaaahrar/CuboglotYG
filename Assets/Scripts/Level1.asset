@@ -22,5 +22,5 @@ MonoBehaviour:
     CountCubes: 3
   TotalCubes: 138
   TotalBombs: 5
-  TimeLimit: 15
+  TimeLimit: 180
   PixelArt: {fileID: 11400000, guid: b5808d35133ad454daff10918740abaa, type: 2}

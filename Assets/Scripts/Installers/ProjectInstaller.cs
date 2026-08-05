@@ -7,6 +7,7 @@ public class ProjectInstaller : MonoInstaller
     [SerializeField] private ColorParser _colorParser;
     [SerializeField] private GoldHandler _goldHandler;
     [SerializeField] private SceneLoader _sceneLoader;
+    [SerializeField] private GameSettingsSO _gameSettingsSO;
 
     public override void InstallBindings()
     {
@@ -14,5 +15,6 @@ public class ProjectInstaller : MonoInstaller
         Container.Bind<ColorParser>().FromComponentInNewPrefab(_colorParser).AsSingle().NonLazy();
         Container.Bind<GoldHandler>().FromComponentInNewPrefab(_goldHandler).AsSingle().NonLazy();
         Container.Bind<SceneLoader>().FromComponentInNewPrefab(_sceneLoader).AsSingle().NonLazy();
+        Container.BindInstance(_gameSettingsSO).AsSingle().NonLazy();    
     }
 }

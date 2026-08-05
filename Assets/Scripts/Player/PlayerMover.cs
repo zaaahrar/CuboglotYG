@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 [RequireComponent (typeof(Rigidbody))]
 public class PlayerMover : MonoBehaviour
@@ -7,7 +8,7 @@ public class PlayerMover : MonoBehaviour
     private const string VERTICAL_AXIS = "Vertical";
 
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private GameSettingsSO _gameSettings;
+    [Inject] private GameSettingsSO _gameSettings;
 
     private void FixedUpdate() => Move();
 

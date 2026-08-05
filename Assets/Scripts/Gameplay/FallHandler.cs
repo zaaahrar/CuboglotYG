@@ -1,9 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 public class FallHandler : MonoBehaviour
 {
-    [SerializeField] private GameSettingsSO _gameSettings;
+    [Inject] private GameSettingsSO _gameSettings;
 
     public void FallToPoint(Transform target, Transform fallPoint)
     {

@@ -4,10 +4,8 @@ using Zenject;
 
 public class Bootstrap : MonoBehaviour
 {
-    private const string LEVEL_DATA_KEY = "LevelData";
     private float INITIAL_DELAY = 0.5f;
 
-    [SerializeField] private LevelDataSO[] _levelsData;
     [SerializeField] private LoadingScreenView _loadingScreen;
     [SerializeField] private LevelBuilder _levelBuilder;
     [SerializeField] private LoseScreenView _loseScreenView;
@@ -17,6 +15,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private Timer _timer;
     [SerializeField] private TimerView _timerView;
 
+    [Inject] private GameSettingsSO _gameSettings;
     [Inject] private CubeCollector _cubeCollector;
     [Inject] private SceneLoader _sceneLoader;
 
@@ -26,7 +25,7 @@ public class Bootstrap : MonoBehaviour
     private void Start()
     {
         _delayLoading = new WaitForSeconds(INITIAL_DELAY);
-        _currentLevelData = GetLevelData();
+        _currentLevelData = _gameSettings.GetLevel();
 
         StartCoroutine(StartingGame(_currentLevelData));
     }
@@ -52,14 +51,5 @@ public class Bootstrap : MonoBehaviour
         yield return _delayLoading;
         _loadingScreen.Hide();
         StartCoroutine(_timer.StartTimer());
-    }
-
-    private LevelDataSO GetLevelData()
-    {
-        if (PlayerPrefs.HasKey(LEVEL_DATA_KEY))
-            return _levelsData[PlayerPrefs.GetInt(LEVEL_DATA_KEY)];
-
-        PlayerPrefs.SetInt(LEVEL_DATA_KEY, Random.Range(0, _levelsData.Length - 1));
-        return _levelsData[PlayerPrefs.GetInt(LEVEL_DATA_KEY)];
     }
 }
