@@ -24,7 +24,13 @@ public class CubeCollector : MonoBehaviour
         }
     }
 
-    private void OnDisable() => _fallDetector.CollectCube -= OnCollectCube;
+    private void OnDisable()
+    {
+        if (_fallDetector == null)
+            return;
+
+        _fallDetector.CollectCube -= OnCollectCube;
+    }
 
     public void Initialize(LevelDataSO levelData, FallDetector fallDetector)
     {
