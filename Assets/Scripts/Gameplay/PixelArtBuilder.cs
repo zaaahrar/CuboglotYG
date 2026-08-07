@@ -3,11 +3,14 @@ using Zenject;
 using System.Collections;
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public class PixelArtBuilder : MonoBehaviour
 {
     [Inject] private CubeCollector _cubeCounter;
     [Inject] private GameSettingsSO _settings;
+    [Inject] private AudioController _audio;
+
     [SerializeField] private LevelDataSO _levelData;
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Transform _parentCubes;
@@ -51,6 +54,9 @@ public class PixelArtBuilder : MonoBehaviour
                         cube.SetColor(color);
                         cube.name = i.ToString();
                         cube.SetKinematic(_isBuilding);
+                        _audio.PlayCollectSound();
+                        cube.transform.DOShakePosition(_settings.Duration, _settings.PositionStrength, _settings.Vibrato)
+                            .SetEase(Ease.OutQuad).SetLink(cube.gameObject, LinkBehaviour.KillOnDisable);
                         _builtCubes.Add(cube);
                         _cubeCounter.RemoveColor(color);
                         break;

@@ -5,4 +5,7 @@ public static class SaveDataKeys
     public static string SpeedUpgradeLevel = "SPEED_UPGRADE_LEVEL";
 
     public static string IndelLevelData = "IndexLevelData";
+
+    public static string VolumeGame = "VolumeGame";
+    public static string IsSoundOn = "IsSoundOn";
 }

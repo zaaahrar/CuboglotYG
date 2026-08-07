@@ -7,6 +7,7 @@ using Zenject;
 public class Upgrade : MonoBehaviour
 {
     [Inject] private GoldHandler _goldHandler;
+    [Inject] private AudioController _audio;
 
     [SerializeField] private UpgradeSO _upgrade;
     [SerializeField] private Image _goldImage;
@@ -46,7 +47,6 @@ public class Upgrade : MonoBehaviour
         UpdateInfoPrice();
         _nameText.text = _upgrade.Name;
         _upgradeImage.sprite = _upgrade.Sprite;
-        _buyButton.onClick.AddListener(Buy);
     }
 
     private void OnEnable()
@@ -64,6 +64,8 @@ public class Upgrade : MonoBehaviour
     {
         if (_goldHandler.TrySpendGold(_upgrade.Prices[_currentLevel]))
         {
+            Debug.Log("S");
+            _audio.PlayGoldSound();
             _goldHandler.SpendGold(_upgrade.Prices[_currentLevel]);
             _currentLevel++;
             PlayerPrefs.SetInt(_upgrade.UpgradeLevelKey, _currentLevel);

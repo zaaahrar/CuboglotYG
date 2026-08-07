@@ -79,3 +79,4 @@ MonoBehaviour:
   _goldHandler: {fileID: 5672345698912303419, guid: 24d99b03e3cd3a442ba7a07031f970e6, type: 3}
   _sceneLoader: {fileID: 8000564391443023353, guid: 830a66bf397654843b190cb08fcc4471, type: 3}
   _gameSettingsSO: {fileID: 11400000, guid: 8517720b0497d0d4a8e713ddb1aa6714, type: 2}
+  _audioController: {fileID: 5110118600469536556, guid: 69af73d66fecaa9489821bef830d891f, type: 3}

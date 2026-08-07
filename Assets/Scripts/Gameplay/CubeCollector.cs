@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Zenject;
 
 public class CubeCollector : MonoBehaviour
 {
+    [Inject] private AudioController _audio;
     [SerializeField] private FallDetector _fallDetector;
 
     public event Action<int, int> ProgressUpdated;
@@ -59,12 +61,13 @@ public class CubeCollector : MonoBehaviour
             throw new ArgumentNullException(nameof(cube));
 
         CurrentCubeCount++;
+        _audio.PlayCollectSound();
         _collectedColors.Add(cube.CurrentColor);
         Destroy(cube.gameObject);
 
-        if (IsComplete())
+        if (IsCompleteLevel())
             AllCubesCollected?.Invoke();
     }
 
-    private bool IsComplete() => CurrentCubeCount >= _currentLevelData.TotalCubes;
+    private bool IsCompleteLevel() => CurrentCubeCount >= _currentLevelData.TotalCubes;
 }

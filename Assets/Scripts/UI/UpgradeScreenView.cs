@@ -1,8 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class UpgradeScreenView : MonoBehaviour
 {
+    [Inject] AudioController _audio;
+
     [SerializeField] private GameObject _window;
     [SerializeField] private Button _openButton;
     [SerializeField] private Button _closeButton;
@@ -20,7 +23,15 @@ public class UpgradeScreenView : MonoBehaviour
         _closeButton.onClick.RemoveListener(Hide);
     }
 
-    public void Show() => _window.SetActive(true);
+    public void Show()
+    {
+        _window.SetActive(true);
+        _audio.PlayClickSound();
+    }
 
-    public void Hide() => _window.SetActive(false);
+    public void Hide()
+    {
+        _window.SetActive(false);
+        _audio.PlayClickSound();
+    }
 }

@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class LoseScreenView : MonoBehaviour
 {
+    [Inject] private AudioController _audio;
     [SerializeField] private LoseController _controller;
     [SerializeField] private GameObject _loseScreen;
     [SerializeField] private Button _restartButton;
@@ -27,11 +29,27 @@ public class LoseScreenView : MonoBehaviour
         _controller.HideWindow -= OnHide;
     }
 
-    private void OnExitInMenu() => _controller.ExitInMenu();
+    private void OnExitInMenu()
+    {
+        _audio.PlayClickSound();
+        _controller.ExitInMenu();
+    }
 
-    private void OnRestarting() => _controller.RestartGame();
+    private void OnRestarting()
+    {
+        _audio.PlayClickSound();
+        _controller.RestartGame();
+    }
 
-    private void OnHide() => _loseScreen.SetActive(false);
+    private void OnHide()
+    {
+        _loseScreen.SetActive(false);
+        _audio.PlayClickSound();
+    }
 
-    private void OnShow() => _loseScreen.SetActive(true);
+    private void OnShow()
+    {
+        _loseScreen.SetActive(true);
+        _audio.PlayBoomSound();
+    }
 }

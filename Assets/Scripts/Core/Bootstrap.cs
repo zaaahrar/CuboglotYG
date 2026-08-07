@@ -6,6 +6,7 @@ public class Bootstrap : MonoBehaviour
 {
     private float INITIAL_DELAY = 0.5f;
 
+    [SerializeField] private AudioClip _gameplayThem;
     [SerializeField] private LoadingScreenView _loadingScreen;
     [SerializeField] private LevelBuilder _levelBuilder;
     [SerializeField] private LoseScreenView _loseScreenView;
@@ -15,6 +16,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private Timer _timer;
     [SerializeField] private TimerView _timerView;
 
+    [Inject] private AudioController _audio;
     [Inject] private GameSettingsSO _gameSettings;
     [Inject] private CubeCollector _cubeCollector;
     [Inject] private SceneLoader _sceneLoader;
@@ -50,6 +52,7 @@ public class Bootstrap : MonoBehaviour
         _loadingScreen.ChangeSlider(100);
         yield return _delayLoading;
         _loadingScreen.Hide();
+        _audio.PlaySceneThem(_gameplayThem);
         StartCoroutine(_timer.StartTimer());
     }
 }

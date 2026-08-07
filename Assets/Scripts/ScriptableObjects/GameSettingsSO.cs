@@ -17,6 +17,9 @@ public class GameSettingsSO : ScriptableObject
     public float PostBuildDelay;
     public float BlockPlacementDelay;
     public float ExplodeForce;
+    public float Duration = 0.5f;
+    public float PositionStrength = 0.3f;
+    public int Vibrato = 10;
 
     [Header("Levels")]
     public LevelDataSO[] LevelsData;

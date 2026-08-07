@@ -7,6 +7,7 @@ using Zenject;
 public class WinScreenView : MonoBehaviour
 {
     [Inject] private SceneLoader _sceneLoader;
+    [Inject] private AudioController _audioController;
 
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private LevelDataSO _levelData;
@@ -29,7 +30,7 @@ public class WinScreenView : MonoBehaviour
         _controller.UpdateWinScreen += OnUpdateScreen;
         _controller.ShowWinScreen += OnShow;
         _exitInMenuButton.onClick.AddListener(_sceneLoader.LoadMainMenuScene);
-        _nextLevelButton.onClick.AddListener(_sceneLoader.LoadGameplayScene);
+        _nextLevelButton.onClick.AddListener(OnNextLevel);
 
         for (int i = 0; i < _stars.Length; i++)
             _stars[i].gameObject.SetActive(false);
@@ -40,7 +41,7 @@ public class WinScreenView : MonoBehaviour
         _controller.UpdateWinScreen -= OnUpdateScreen;
         _controller.ShowWinScreen -= OnShow;
         _exitInMenuButton.onClick.RemoveListener(_sceneLoader.LoadMainMenuScene);
-        _nextLevelButton.onClick.RemoveListener(_sceneLoader.LoadGameplayScene);
+        _nextLevelButton.onClick.RemoveListener(OnNextLevel);
     }
 
     private void OnUpdateScreen(int cubesCollect, int totalCubes, int gold, int stars)
@@ -57,10 +58,17 @@ public class WinScreenView : MonoBehaviour
 
     }
 
+    private void OnNextLevel()
+    {
+        _audioController.DisableAllSounds();
+        _sceneLoader.LoadGameplayScene();
+    }
+
     private void OnShow()
     {
         _rectTransform.anchoredPosition = new Vector2(0, _yStartPosition);
         _winScreen.SetActive(true);
+        _audioController.PlayWinSound();
         _rectTransform.DOAnchorPosY(0, _showDuration);
     }
 }

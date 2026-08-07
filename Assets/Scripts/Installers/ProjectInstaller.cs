@@ -8,6 +8,7 @@ public class ProjectInstaller : MonoInstaller
     [SerializeField] private GoldHandler _goldHandler;
     [SerializeField] private SceneLoader _sceneLoader;
     [SerializeField] private GameSettingsSO _gameSettingsSO;
+    [SerializeField] private AudioController _audioController;
 
     public override void InstallBindings()
     {
@@ -15,6 +16,7 @@ public class ProjectInstaller : MonoInstaller
         Container.Bind<ColorParser>().FromComponentInNewPrefab(_colorParser).AsSingle().NonLazy();
         Container.Bind<GoldHandler>().FromComponentInNewPrefab(_goldHandler).AsSingle().NonLazy();
         Container.Bind<SceneLoader>().FromComponentInNewPrefab(_sceneLoader).AsSingle().NonLazy();
+        Container.Bind<AudioController>().FromComponentInNewPrefab(_audioController).AsSingle().NonLazy();
         Container.BindInstance(_gameSettingsSO).AsSingle().NonLazy();    
     }
 }
