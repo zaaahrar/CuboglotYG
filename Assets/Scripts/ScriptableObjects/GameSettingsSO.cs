@@ -3,8 +3,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Settings/Game")]
 public class GameSettingsSO : ScriptableObject
 {
-    public string INDEX_LEVEL_DATA_KEY = "IndexLevelData";
-
     public float Speed;
 
     [Header("Cube Falling")]
@@ -18,18 +16,19 @@ public class GameSettingsSO : ScriptableObject
     [Header("PixelArtBuilding")]
     public float PostBuildDelay;
     public float BlockPlacementDelay;
+    public float ExplodeForce;
 
     [Header("Levels")]
     public LevelDataSO[] LevelsData;
 
     public LevelDataSO GetLevel()
     {
-        if (PlayerPrefs.HasKey(INDEX_LEVEL_DATA_KEY))
-            return LevelsData[PlayerPrefs.GetInt(INDEX_LEVEL_DATA_KEY)];
+        if (PlayerPrefs.HasKey(SaveDataKeys.IndelLevelData))
+            return LevelsData[PlayerPrefs.GetInt(SaveDataKeys.IndelLevelData)];
 
         SetRandomLevel();
-        return LevelsData[PlayerPrefs.GetInt(INDEX_LEVEL_DATA_KEY)];
+        return LevelsData[PlayerPrefs.GetInt(SaveDataKeys.IndelLevelData)];
     }
 
-    public void SetRandomLevel() => PlayerPrefs.SetInt(INDEX_LEVEL_DATA_KEY, Random.Range(0, LevelsData.Length - 1));
+    public void SetRandomLevel() => PlayerPrefs.SetInt(SaveDataKeys.IndelLevelData, Random.Range(0, LevelsData.Length - 1));
 }

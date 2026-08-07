@@ -8,8 +8,9 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        if(PlayerPrefs.HasKey(_gameSettingsSO.INDEX_LEVEL_DATA_KEY))
-            PlayerPrefs.DeleteKey(_gameSettingsSO.INDEX_LEVEL_DATA_KEY);
+        if(PlayerPrefs.HasKey(SaveDataKeys.IndelLevelData))
+            PlayerPrefs.DeleteKey(SaveDataKeys.IndelLevelData);
+
         _gameSettingsSO.SetRandomLevel();
         _sceneLoader.LoadGameplayScene();
     }

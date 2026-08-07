@@ -17,12 +17,17 @@ public class GoldHandler : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        CurrentGold = 100000;
+    }
+
     public void AddGold(int gold)
     {
         if(gold < 0)
             throw new ArgumentOutOfRangeException(nameof(gold));
 
-        _currentGold += gold;
+        CurrentGold += gold;
     }
 
     public void SpendGold(int gold)
@@ -30,7 +35,7 @@ public class GoldHandler : MonoBehaviour
         if (gold < 0)
             throw new ArgumentOutOfRangeException(nameof(gold));
 
-        _currentGold -= gold;
+        CurrentGold -= gold;
     }
 
     public bool TrySpendGold(int gold)

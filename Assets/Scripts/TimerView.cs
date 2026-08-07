@@ -16,7 +16,8 @@ public class TimerView : MonoBehaviour
     public void Initialize(LevelDataSO levelData)
     {
         _timer.UpdateTimer += OnUpdateTimer;
-        _slider.maxValue = levelData.TimeLimit;
+        _slider.maxValue = levelData.TimeLimit 
+            + (int)(PlayerPrefs.GetInt(_timer.TimeUpgrade.UpgradeLevelKey) * _timer.TimeUpgrade.StatValue);
         _slider.value = _slider.maxValue;
         OnUpdateTimer(levelData.TimeLimit);
     }
@@ -30,6 +31,7 @@ public class TimerView : MonoBehaviour
             _timerText.text = $"{minutes}:0{seconds}";
         else
             _timerText.text = $"{minutes}:{seconds}";
+
         _slider.value = timerDureation;
     }
 }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 351899a8e87f545478e2cf02be57bac3, type: 3}
+  m_Name: SpeedUpgrade
+  m_EditorClassIdentifier: 
+  Name: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
+  Upgrade: 2
+  MaxLevel: 5
+  Prices: ee020000dc050000ca080000b80b0000a60e0000
+  StatValue: 0.5
+  UpgradeLevelKey: SPEED_UPGRADE_LEVEL
+  Sprite: {fileID: 21300000, guid: a476a39622867824c8d09374bb132d10, type: 3}

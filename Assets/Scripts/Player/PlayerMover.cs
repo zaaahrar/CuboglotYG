@@ -8,7 +8,16 @@ public class PlayerMover : MonoBehaviour
     private const string VERTICAL_AXIS = "Vertical";
 
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private UpgradeSO _speedUpgrade;
     [Inject] private GameSettingsSO _gameSettings;
+
+    private float _currentSpeed;
+
+    private void Start()
+    {
+        _currentSpeed = _gameSettings.Speed
+        + (PlayerPrefs.GetInt(_speedUpgrade.UpgradeLevelKey) * _speedUpgrade.StatValue);
+    }
 
     private void FixedUpdate() => Move();
 
@@ -18,6 +27,6 @@ public class PlayerMover : MonoBehaviour
         float verticalMove = Input.GetAxisRaw(VERTICAL_AXIS);
         Vector3 direction = new Vector3 (horizontalMove, 0, verticalMove).normalized;
 
-        _rigidbody.velocity = direction * _gameSettings.Speed;
+        _rigidbody.velocity = direction * _currentSpeed;
     }
 }

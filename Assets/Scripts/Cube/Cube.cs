@@ -6,6 +6,7 @@ public class Cube : MonoBehaviour
 {
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Rigidbody _rigidBody;
+    [SerializeField] private GameSettingsSO _gameSettings;
     [Inject] private ColorParser _colorParser;
 
     private Material _material;
@@ -23,4 +24,10 @@ public class Cube : MonoBehaviour
     }
 
     public void SetKinematic(bool isKinematic) => _rigidBody.isKinematic = isKinematic;
+
+    public void Explode()
+    {
+        Vector3 randomDirection = UnityEngine.Random.insideUnitSphere.normalized;
+        _rigidBody.AddForce(randomDirection * _gameSettings.ExplodeForce, ForceMode.Impulse);
+    }
 }

@@ -67,6 +67,7 @@ public class PixelArtBuilder : MonoBehaviour
         foreach (var cube in _builtCubes)
         {
             cube.SetKinematic(_isBuilding);
+            cube.Explode();
         }
     }
 

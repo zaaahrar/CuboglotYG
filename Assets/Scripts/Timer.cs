@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Timer : MonoBehaviour
 {
+    [SerializeField] private UpgradeSO _timeUpgrade;
     private LevelDataSO _levelData;
 
     public event Action<int> UpdateTimer;
@@ -12,6 +13,7 @@ public class Timer : MonoBehaviour
     private WaitForSeconds _second;
     private int _timerDuration;
 
+    public UpgradeSO TimeUpgrade => _timeUpgrade;
     public int TimerDuration
     {
         get => _timerDuration;
@@ -28,7 +30,7 @@ public class Timer : MonoBehaviour
             throw new ArgumentNullException(nameof(levelData));
 
         _levelData = levelData;
-        TimerDuration = _levelData.TimeLimit;
+        TimerDuration = _levelData.TimeLimit + (int)(PlayerPrefs.GetInt(_timeUpgrade.UpgradeLevelKey) * _timeUpgrade.StatValue);
         _second = new WaitForSeconds(1);
     }
 

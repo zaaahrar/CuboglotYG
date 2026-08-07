@@ -1,12 +1,17 @@
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class GoldView : MonoBehaviour
 {
-    [SerializeField] private GoldHandler _goldHandler;
+    [Inject] private GoldHandler _goldHandler;
     [SerializeField] private TMP_Text _goldText;
 
-    public void Initialize() => _goldHandler.UpdateGold += OnUpdateGold;
+    private void OnEnable()
+    {
+        _goldHandler.UpdateGold += OnUpdateGold;
+        OnUpdateGold(_goldHandler.CurrentGold);
+    }
 
     private void OnDisable() => _goldHandler.UpdateGold -= OnUpdateGold;
 

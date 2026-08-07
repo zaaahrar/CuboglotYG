@@ -63,6 +63,4 @@ public class WinScreenView : MonoBehaviour
         _winScreen.SetActive(true);
         _rectTransform.DOAnchorPosY(0, _showDuration);
     }
-
-
 }

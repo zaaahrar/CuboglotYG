@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe728934cef118459320a322ba22cc1, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
-  INDEX_LEVEL_DATA_KEY: IndexLevelData
   Speed: 5
-  LookDuration: 0.5
-  MoveDuration: 1
+  LookDuration: 0.2
+  MoveDuration: 0.5
   MinDistanceBetweenCubes: 2
   MaxAttempts: 100
   PostBuildDelay: 2
   BlockPlacementDelay: 0.05
+  ExplodeForce: 25
   LevelsData:
   - {fileID: 11400000, guid: 64d7bd47b8d2fcd49b93fb69720c5ea8, type: 2}
