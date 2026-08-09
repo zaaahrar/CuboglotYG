@@ -15,6 +15,9 @@ public class SceneLoader : MonoBehaviour
 
     private void OnDisable()
     {
+        if (_timer == null)
+            return;
+
         _cubeCounter.AllCubesCollected -= LoadPixelArtScene;
         _timer.TimerFinished -= LoadPixelArtScene;
     }

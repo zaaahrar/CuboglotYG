@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using YG;
 
 public class GoldHandler : MonoBehaviour
 {
@@ -13,14 +14,13 @@ public class GoldHandler : MonoBehaviour
         private set
         {
             _currentGold = value;
+            YandexGame.savesData.Gold = _currentGold;
+            YandexGame.SaveProgress();
             UpdateGold?.Invoke(_currentGold);
         }
     }
 
-    private void Start()
-    {
-        CurrentGold = 100000;
-    }
+    public void Start() => _currentGold = YandexGame.savesData.Gold + 500000;
 
     public void AddGold(int gold)
     {

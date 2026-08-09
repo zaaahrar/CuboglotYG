@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using YG;
 
 public class PauseView : MonoBehaviour
 {

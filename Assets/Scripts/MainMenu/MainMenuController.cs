@@ -16,9 +16,6 @@ public class MainMenuController : MonoBehaviour
 
     public void StartGame()
     {
-        if(PlayerPrefs.HasKey(SaveDataKeys.IndelLevelData))
-            PlayerPrefs.DeleteKey(SaveDataKeys.IndelLevelData);
-
         _audioController.PlayClickSound();
         _gameSettingsSO.SetRandomLevel();
         _audioController.DisableAllSounds();

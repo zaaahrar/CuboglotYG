@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using YG;
 
 public class AudioController : MonoBehaviour
 {
@@ -15,21 +16,15 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip _tickSound;
     [SerializeField] private AudioClip _winSound;
     [SerializeField] private AudioClip _goldSound;
+    [SerializeField] private AudioClip _successfulAdvertisingSound;
 
     private bool _isSoundOn;
     private float _volume;
 
     private void Start()
     {
-        if (!PlayerPrefs.HasKey(SaveDataKeys.VolumeGame))
-            _volume = 100;
-        else
-            _volume = PlayerPrefs.GetInt(SaveDataKeys.VolumeGame);
-
-        if (!PlayerPrefs.HasKey(SaveDataKeys.IsSoundOn))
-            _isSoundOn = true;
-        else
-            _isSoundOn = Convert.ToBoolean(PlayerPrefs.GetInt(SaveDataKeys.IsSoundOn));
+        _volume = YandexGame.savesData.VolumeGame;
+        _isSoundOn = YandexGame.savesData.IsSoundOn;
 
         if (!_isSoundOn)
         {
@@ -47,6 +42,8 @@ public class AudioController : MonoBehaviour
         _loopAudio.clip = clip;
         _loopAudio.Play();
     }
+
+    public void PlaySuccessfulAdvertisingSound() => _audio.PlayOneShot(_successfulAdvertisingSound);
 
     public void PlayGoldSound() => _audio.PlayOneShot(_goldSound);
 

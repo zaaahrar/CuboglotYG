@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Zenject;
+using YG;
 
 public class Bootstrap : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Bootstrap : MonoBehaviour
     private void Start()
     {
         _delayLoading = new WaitForSeconds(INITIAL_DELAY);
-        _currentLevelData = _gameSettings.GetLevel();
+        _currentLevelData = _gameSettings.GetCurrentLevelLevel();
 
         StartCoroutine(StartingGame(_currentLevelData));
     }
@@ -54,5 +55,6 @@ public class Bootstrap : MonoBehaviour
         _loadingScreen.Hide();
         _audio.PlaySceneThem(_gameplayThem);
         StartCoroutine(_timer.StartTimer());
+        YandexGame.GameplayStart();
     }
 }

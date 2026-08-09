@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Settings/Game")]
 public class GameSettingsSO : ScriptableObject
@@ -24,14 +25,11 @@ public class GameSettingsSO : ScriptableObject
     [Header("Levels")]
     public LevelDataSO[] LevelsData;
 
-    public LevelDataSO GetLevel()
+    public LevelDataSO GetCurrentLevelLevel() => LevelsData[YandexGame.savesData.CurrentLevelIndex];
+
+    public void SetRandomLevel()
     {
-        if (PlayerPrefs.HasKey(SaveDataKeys.IndelLevelData))
-            return LevelsData[PlayerPrefs.GetInt(SaveDataKeys.IndelLevelData)];
-
-        SetRandomLevel();
-        return LevelsData[PlayerPrefs.GetInt(SaveDataKeys.IndelLevelData)];
+        YandexGame.savesData.CurrentLevelIndex = Random.Range(0, LevelsData.Length - 1);
+        YandexGame.SaveProgress();
     }
-
-    public void SetRandomLevel() => PlayerPrefs.SetInt(SaveDataKeys.IndelLevelData, Random.Range(0, LevelsData.Length - 1));
 }

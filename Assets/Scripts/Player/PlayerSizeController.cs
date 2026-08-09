@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 
 public class PlayerSizeController : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PlayerSizeController : MonoBehaviour
 
     private void Start()
     {
-        _statSize = 1 + PlayerPrefs.GetInt(_sizeUpgrade.UpgradeLevelKey) * _sizeUpgrade.StatValue;
+        _statSize = transform.localScale.x + YandexGame.savesData.LevelSizeUpgrade * _sizeUpgrade.StatValue;
         transform.localScale = new Vector3(_statSize, _statSize, _statSize); 
     }
 }

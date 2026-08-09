@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using Zenject;
+using YG;
 
 public class Timer : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class Timer : MonoBehaviour
             throw new ArgumentNullException(nameof(levelData));
 
         _levelData = levelData;
-        TimerDuration = _levelData.TimeLimit + (int)(PlayerPrefs.GetInt(_timeUpgrade.UpgradeLevelKey) * _timeUpgrade.StatValue);
+        TimerDuration = _levelData.TimeLimit + (int)(YandexGame.savesData.LevelTimeUpgrade * _timeUpgrade.StatValue);
         _second = new WaitForSeconds(1);
     }
 

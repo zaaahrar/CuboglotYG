@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 using Zenject;
 
 [RequireComponent (typeof(Rigidbody))]
@@ -16,7 +17,7 @@ public class PlayerMover : MonoBehaviour
     private void Start()
     {
         _currentSpeed = _gameSettings.Speed
-        + (PlayerPrefs.GetInt(_speedUpgrade.UpgradeLevelKey) * _speedUpgrade.StatValue);
+        + YandexGame.savesData.LevelSpeedUpgrade * _speedUpgrade.StatValue;
     }
 
     private void FixedUpdate() => Move();

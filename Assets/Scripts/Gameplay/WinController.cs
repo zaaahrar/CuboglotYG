@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using YG;
 using Zenject;
 
 public class WinController : MonoBehaviour
@@ -13,19 +14,28 @@ public class WinController : MonoBehaviour
 
     public event Action ShowWinScreen;
     public event Action<int, int, int, int> UpdateWinScreen;
+    public event Action SuccessfulAdvertising;
 
     private int _starsCount = 0;
     private LevelDataSO _levelData;
+    private int _cubesCollect;
+
+    private void OnEnable() => YandexGame.RewardVideoEvent += Rewarded;
+
+    private void OnDisable() => YandexGame.RewardVideoEvent -= Rewarded;
 
     public void Win(int cubesCollect)
     {
-        _levelData = _settings.GetLevel();
-        _starsCount = GetStars(cubesCollect);
-        int gold = GetGold(cubesCollect);
+        _cubesCollect = cubesCollect;
+        _levelData = _settings.GetCurrentLevelLevel();
+        _starsCount = GetStars(_cubesCollect);
+        int gold = GetGold(_cubesCollect);
         _goldHandler.AddGold(gold);
-        UpdateWinScreen?.Invoke(cubesCollect, _levelData.TotalCubes, gold, _starsCount);
+        UpdateWinScreen?.Invoke(_cubesCollect, _levelData.TotalCubes, gold, _starsCount);
         ShowWinScreen?.Invoke();
     }
+
+    public void ShowAD() => YandexGame.RewVideoShow(AdPlacementIds.X2GoldReward);
 
     private int GetStars(int cubesCollect)
     {
@@ -51,5 +61,17 @@ public class WinController : MonoBehaviour
             default:
                 return cubes;
         }
+    }
+
+    private void Rewarded(int index)
+    {
+        if (index == AdPlacementIds.X2GoldReward)
+        {
+            int gold = GetGold(_cubesCollect);
+            _goldHandler.AddGold(gold);
+            UpdateWinScreen?.Invoke(_cubesCollect, _levelData.TotalCubes, gold * 2, _starsCount);
+            SuccessfulAdvertising?.Invoke();
+        }
+
     }
 }

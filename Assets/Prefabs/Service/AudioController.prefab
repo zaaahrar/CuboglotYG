@@ -144,7 +144,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audio: {fileID: 83167533980777102}
   _loopAudio: {fileID: 5919282770764360838}
-  _mainMenuThem: {fileID: 8300000, guid: e21bfe778ef8aab46900dc7d0c58bebb, type: 3}
   _clickSound: {fileID: 8300000, guid: 0f0bd4c99e7e81242b90d3ccb26153d0, type: 3}
   _successfulActionSound: {fileID: 8300000, guid: aa7a3f0ffe1affa41bed568d39467e76, type: 3}
   _boomSound: {fileID: 8300000, guid: 8ba15e9864b2ca648a91419829bbf986, type: 3}
@@ -152,6 +151,7 @@ MonoBehaviour:
   _tickSound: {fileID: 8300000, guid: a3a36c1ade6f9b84f971660bb0f1b091, type: 3}
   _winSound: {fileID: 8300000, guid: d31d2b75a06faaf45bd0e105379ef477, type: 3}
   _goldSound: {fileID: 8300000, guid: 31c1b36a9fa822545a23d2a417798ba0, type: 3}
+  _successfulAdvertisingSound: {fileID: 8300000, guid: d880806ea62a7cd4dad1563414dda9c8, type: 3}
 --- !u!1 &6900833946708487701
 GameObject:
   m_ObjectHideFlags: 0

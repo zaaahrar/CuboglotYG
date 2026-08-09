@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Zenject;
+using YG;
 
 public class Upgrade : MonoBehaviour
 {
@@ -27,18 +28,10 @@ public class Upgrade : MonoBehaviour
         for (int i = 0; i < _upgrade.MaxLevel; i++)
             _levelImages.Add(Instantiate(_levelInstance, _levelParent));
 
-        if (PlayerPrefs.HasKey(_upgrade.UpgradeLevelKey))
-        {
-            _currentLevel = PlayerPrefs.GetInt(_upgrade.UpgradeLevelKey);
-        }
-        else
-        {
-            _currentLevel = 0;
-            PlayerPrefs.SetInt(_upgrade.UpgradeLevelKey, _currentLevel);
-        }
+        _currentLevel = GetCurrentLevel();
 
 
-        if(_currentLevel > 0)
+        if (_currentLevel > 0)
         {
             for (int i = 0; i < _currentLevel; i++)
                 _levelImages[i].GetComponent<Image>().color = Color.green;
@@ -64,11 +57,10 @@ public class Upgrade : MonoBehaviour
     {
         if (_goldHandler.TrySpendGold(_upgrade.Prices[_currentLevel]))
         {
-            Debug.Log("S");
             _audio.PlayGoldSound();
             _goldHandler.SpendGold(_upgrade.Prices[_currentLevel]);
             _currentLevel++;
-            PlayerPrefs.SetInt(_upgrade.UpgradeLevelKey, _currentLevel);
+            SaveLevel(_currentLevel);
             UpdateInfoPrice();
             _levelImages[_currentLevel - 1].GetComponent<Image>().color = Color.green;
         }
@@ -87,5 +79,38 @@ public class Upgrade : MonoBehaviour
         {
             _priceText.text = _upgrade.Prices[_currentLevel].ToString();
         }
+    }
+
+    private int GetCurrentLevel()
+    {
+        switch (_upgrade.Upgrade)
+        {
+            case Upgrades.Size:
+                return YandexGame.savesData.LevelSizeUpgrade;
+            case Upgrades.Speed:
+                return YandexGame.savesData.LevelSpeedUpgrade;
+            case Upgrades.Time:
+                return YandexGame.savesData.LevelTimeUpgrade;
+            default:
+                return 0;
+        }
+    }
+
+    private void SaveLevel(int level)
+    {
+        switch (_upgrade.Upgrade)
+        {
+            case Upgrades.Size:
+                YandexGame.savesData.LevelSizeUpgrade = level;
+                break;
+            case Upgrades.Speed:
+                YandexGame.savesData.LevelSpeedUpgrade = level;
+                break;
+            case Upgrades.Time:
+                YandexGame.savesData.LevelTimeUpgrade = level;
+                break;
+        }
+
+        YandexGame.SaveProgress();
     }
 }

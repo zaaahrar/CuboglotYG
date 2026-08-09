@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class TimerView : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class TimerView : MonoBehaviour
     {
         _timer.UpdateTimer += OnUpdateTimer;
         _slider.maxValue = levelData.TimeLimit 
-            + (int)(PlayerPrefs.GetInt(_timer.TimeUpgrade.UpgradeLevelKey) * _timer.TimeUpgrade.StatValue);
+            + (int)YandexGame.savesData.LevelTimeUpgrade * _timer.TimeUpgrade.StatValue;
         _slider.value = _slider.maxValue;
         OnUpdateTimer(levelData.TimeLimit);
     }

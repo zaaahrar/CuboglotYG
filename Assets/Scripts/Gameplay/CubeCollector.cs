@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Zenject;
+using YG;
 
 public class CubeCollector : MonoBehaviour
 {
@@ -66,7 +67,10 @@ public class CubeCollector : MonoBehaviour
         Destroy(cube.gameObject);
 
         if (IsCompleteLevel())
+        {
             AllCubesCollected?.Invoke();
+            YandexGame.GameplayStop();
+        }
     }
 
     private bool IsCompleteLevel() => CurrentCubeCount >= _currentLevelData.TotalCubes;
