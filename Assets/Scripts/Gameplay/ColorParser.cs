@@ -3,6 +3,8 @@ using UnityEngine;
 public class ColorParser : MonoBehaviour
 {
     [SerializeField] private Color _orange;
+    [SerializeField] private Color _darkGreen;
+    [SerializeField] private Color _brown;
 
     public Color GetColor(ColorCube color)
     {
@@ -20,6 +22,14 @@ public class ColorParser : MonoBehaviour
                 return Color.red;
             case ColorCube.Orange:
                 return _orange;
+            case ColorCube.Gray:
+                return Color.grey;
+            case ColorCube.Green:
+                return Color.green;
+            case ColorCube.DarkGreen:
+                return _darkGreen;
+            case ColorCube.Brown:
+                return _brown;
             default:
                 return Color.white;
         }

@@ -38,5 +38,9 @@ public enum ColorCube
     Yellow,
     Blue,
     Red,
-    Orange
+    Orange,
+    Gray,
+    Green,
+    DarkGreen,
+    Brown
 }

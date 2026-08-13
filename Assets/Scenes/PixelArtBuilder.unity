@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b206e19e2fe4b8e4d84da461f96e7af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelData: {fileID: 11400000, guid: 64d7bd47b8d2fcd49b93fb69720c5ea8, type: 2}
+  _levelData: {fileID: 11400000, guid: 7eed45d15abb8bd47ba212a223ed521d, type: 2}
   _spawner: {fileID: 864012687}
   _parentCubes: {fileID: 1323996341}
   _winController: {fileID: 1693931244}
@@ -3200,6 +3200,14 @@ PrefabInstance:
     - target: {fileID: 6250585753680483769, guid: b88b3ab3e73684e4087ff974d2b79234, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159945206688325875, guid: b88b3ab3e73684e4087ff974d2b79234, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159945206688325875, guid: b88b3ab3e73684e4087ff974d2b79234, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -762
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

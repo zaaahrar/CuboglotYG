@@ -20,5 +20,13 @@ MonoBehaviour:
   PostBuildDelay: 2
   BlockPlacementDelay: 0.05
   ExplodeForce: 25
+  Duration: 0.5
+  PositionStrength: 0.3
+  Vibrato: 10
   LevelsData:
   - {fileID: 11400000, guid: 64d7bd47b8d2fcd49b93fb69720c5ea8, type: 2}
+  - {fileID: 11400000, guid: 74fdef1022281654b9a257d451e77091, type: 2}
+  - {fileID: 11400000, guid: b6e235001081c914ea38143c3ef1ffe7, type: 2}
+  - {fileID: 11400000, guid: b8ae23ee2a4e72c48bb71260c5899531, type: 2}
+  - {fileID: 11400000, guid: f73b350c7e029d44aa9d43629614831e, type: 2}
+  - {fileID: 11400000, guid: 7eed45d15abb8bd47ba212a223ed521d, type: 2}

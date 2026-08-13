@@ -33,7 +33,7 @@ public class WinScreenView : MonoBehaviour
     {
         _controller.UpdateWinScreen += OnUpdateScreen;
         _controller.ShowWinScreen += OnShow;
-        YandexGame.ErrorVideoEvent += OnErrorAD;
+        YandexGame.ErrorVideoEvent += OnErrorVideo;
         _controller.SuccessfulAdvertising += OnSuccessfulAdvertising;
 
         _exitInMenuButton.onClick.AddListener(_sceneLoader.LoadMainMenuScene);
@@ -50,7 +50,7 @@ public class WinScreenView : MonoBehaviour
     {
         _controller.UpdateWinScreen -= OnUpdateScreen;
         _controller.ShowWinScreen -= OnShow;
-        YandexGame.ErrorVideoEvent -= OnErrorAD;
+        YandexGame.ErrorVideoEvent -= OnErrorVideo;
         _controller.SuccessfulAdvertising -= OnSuccessfulAdvertising;
 
         _exitInMenuButton.onClick.RemoveListener(_sceneLoader.LoadMainMenuScene);
@@ -87,7 +87,7 @@ public class WinScreenView : MonoBehaviour
         _rectTransform.DOAnchorPosY(0, _showDuration);
     }
 
-    private void OnErrorAD() => _errorController.ShowError(_descriptionError);
+    private void OnErrorVideo() => _errorController.ShowError(_descriptionError);
 
     private void OnSuccessfulAdvertising()
     {

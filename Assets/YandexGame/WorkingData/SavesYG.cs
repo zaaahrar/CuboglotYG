@@ -13,6 +13,7 @@ namespace YG
 
         public int Gold = 0;
         public int CurrentLevelIndex = 0;
+        public int LeaderboardScore = 0;
 
         [Header("Upgrades")]
         public int LevelSpeedUpgrade = 0;
@@ -20,7 +21,8 @@ namespace YG
         public int LevelTimeUpgrade = 0;
 
         [Header("Settings")]
-        public int VolumeGame = 50;
+        public int MusicVolume = 50;
+        public int EffectsVolume = 50;
         public bool IsSoundOn = true;
 
         public SavesYG()

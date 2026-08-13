@@ -25,11 +25,13 @@ public class GameSettingsSO : ScriptableObject
     [Header("Levels")]
     public LevelDataSO[] LevelsData;
 
-    public LevelDataSO GetCurrentLevelLevel() => LevelsData[YandexGame.savesData.CurrentLevelIndex];
+    public LevelDataSO GetCurrentLevel() => LevelsData[YandexGame.savesData.CurrentLevelIndex];
 
     public void SetRandomLevel()
     {
-        YandexGame.savesData.CurrentLevelIndex = Random.Range(0, LevelsData.Length - 1);
+        YandexGame.savesData.CurrentLevelIndex = Random.Range(0, LevelsData.Length);
+        Debug.Log(YandexGame.savesData.CurrentLevelIndex);
+        Debug.Log(LevelsData.Length);
         YandexGame.SaveProgress();
     }
 }

@@ -23,7 +23,15 @@ public class LevelBuilder : MonoBehaviour
 
     public IEnumerator BuildingLevel(LevelDataSO levelData)
     {
-        for(int i = 0; i < levelData.CubeTypes.Count; i++)
+        for (int i = 0; i < levelData.TotalBombs; i++)
+        {
+            yield return null;
+            Vector3 spawnPosition = GetPositionSpawn();
+            _spawnedBombs.Add(_spawner.SpawnBomb(spawnPosition, _parentCubes));
+            _spawnPositions.Add(spawnPosition);
+        }
+
+        for (int i = 0; i < levelData.CubeTypes.Count; i++)
         {
             for(int j = 0; j < levelData.CubeTypes[i].CountCubes; j++)
             {
@@ -34,14 +42,6 @@ public class LevelBuilder : MonoBehaviour
                 _spawnPositions.Add(spawnPosition);
                 _spawnedCubes.Add(cube);
             }
-        }
-
-        for(int i = 0; i < levelData.TotalBombs; i++)
-        {
-            yield return null;
-            Vector3 spawnPosition = GetPositionSpawn();
-            _spawnedBombs.Add(_spawner.SpawnBomb(spawnPosition, _parentCubes));
-            _spawnPositions.Add(spawnPosition);
         }
     }
 

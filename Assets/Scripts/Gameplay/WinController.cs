@@ -5,9 +5,11 @@ using Zenject;
 
 public class WinController : MonoBehaviour
 {
+    private const string LeaderboardName = "Leaderboard";
     private const int OneStarPercent = 30;
     private const int TwoStarsPercent = 60;
     private const int ThreStarsPercent = 100;
+    private const int MaxStars = 3;
 
     [Inject] private GameSettingsSO _settings;
     [Inject] private GoldHandler _goldHandler;
@@ -27,10 +29,11 @@ public class WinController : MonoBehaviour
     public void Win(int cubesCollect)
     {
         _cubesCollect = cubesCollect;
-        _levelData = _settings.GetCurrentLevelLevel();
+        _levelData = _settings.GetCurrentLevel();
         _starsCount = GetStars(_cubesCollect);
         int gold = GetGold(_cubesCollect);
         _goldHandler.AddGold(gold);
+        TryAddRecordLiderboard();
         UpdateWinScreen?.Invoke(_cubesCollect, _levelData.TotalCubes, gold, _starsCount);
         ShowWinScreen?.Invoke();
     }
@@ -60,6 +63,16 @@ public class WinController : MonoBehaviour
                 return cubes * (100 + 60) / 100;
             default:
                 return cubes;
+        }
+    }
+
+    private void TryAddRecordLiderboard()
+    {
+        if(_starsCount == MaxStars)
+        {
+            YandexGame.savesData.LeaderboardScore++;
+            YandexGame.NewLeaderboardScores(LeaderboardName, YandexGame.savesData.LeaderboardScore);
+            YandexGame.SaveProgress();
         }
     }
 

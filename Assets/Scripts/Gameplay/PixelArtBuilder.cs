@@ -26,6 +26,7 @@ public class PixelArtBuilder : MonoBehaviour
         if (_settings == null)
             throw new ArgumentException();
 
+        _levelData = _settings.GetCurrentLevel();
         StartCoroutine(BuildingPixelArt());
         _postBuildDelay = new WaitForSeconds(_settings.PostBuildDelay);
         _blockPlacementDelay = new WaitForSeconds(_settings.BlockPlacementDelay);
@@ -80,21 +81,39 @@ public class PixelArtBuilder : MonoBehaviour
     [ContextMenu("GetColors")]
     public void GetColors()
     {
-        int red = 0;
+        int green = 0;
+        int darkGreen = 0;
         int black = 0;
         int white = 0;
+        int gray = 0;
+        int brown = 0;
+        int yellow = 0;
+        int red = 0;
 
         foreach (var pixel in _levelData.PixelArt.Pixels)
         {
 
-            if (pixel.ColorPixel == ColorCube.Red)
-                red++;
+            if (pixel.ColorPixel == ColorCube.Green)
+                green++;
             if (pixel.ColorPixel == ColorCube.Black)
                 black++;
             if (pixel.ColorPixel == ColorCube.White)
                 white++;
+            if (pixel.ColorPixel == ColorCube.DarkGreen)
+                darkGreen++;
+            if (pixel.ColorPixel == ColorCube.Gray)
+                gray++;
+            if (pixel.ColorPixel == ColorCube.Brown)
+                brown++;
+            if (pixel.ColorPixel == ColorCube.Yellow)
+                yellow++;
+            if (pixel.ColorPixel == ColorCube.Red)
+                red++;
         }
 
-        Debug.Log($"red: {red}, black: {black}, white: {white}");
+        Debug.Log($"green: {green}, black: {black}, white: {white}," +
+            $" darkGreen: {darkGreen}, gray: {gray}, brown: {brown}, yellow: {yellow}," +
+            $"red: {red}");
+        Debug.Log($"total: {green + darkGreen + black + white + gray+ brown+ yellow+red}");
     }
 }

@@ -1,10 +1,11 @@
 ﻿using System;
-using UnityEngine.Events;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityToolbag;
-using YG.Utils.LB;
 using YG.Utils.Lang;
+using YG.Utils.LB;
 
 namespace YG
 {
@@ -24,6 +25,11 @@ namespace YG
         [Tooltip("Кол-во получаемых записей возле пользователя")]
         [Range(1, 10)]
         public int quantityAround = 6;
+
+        [Header("ThisPlayerSettings")]
+        [SerializeField] private LBPlayerDataYG _thisPlayer;
+        [SerializeField] private GameObject _infoThisPlayer;
+        [SerializeField] private GameObject _errorTextThisPlayer;
 
         public enum UpdateLBMethod { Start, OnEnable, DoNotUpdate };
         [Tooltip("Когда следует обновлять лидерборд?\nStart - Обновлять в методе Start.\nOnEnable - Обновлять при каждой активации объекта (в методе OnEnable)\nDoNotUpdate - Не обновлять лидерборд с помощью данного скрипта (подразоумивается, что метод обновления 'UpdateLB' вы будете запускать сами, когда вам потребуется.")]
@@ -134,10 +140,27 @@ namespace YG
                     }
                     else
                     {
+                        var currentPlayer = lbData.players.FirstOrDefault(p => p.uniqueID == YandexGame.playerId);
 #if UNITY_EDITOR
                         lbData = LBMethods.SortLB(lbData, quantityTop, quantityAround, maxQuantityPlayers);
 #endif
                         SpawnPlayersList(lbData);
+
+                        if (currentPlayer != null)
+                        {
+                            _infoThisPlayer.SetActive(true);
+                            _errorTextThisPlayer.SetActive(false);
+                            _thisPlayer.data.name = currentPlayer.name;
+                            _thisPlayer.data.rank = currentPlayer.rank.ToString();
+                            _thisPlayer.data.score = currentPlayer.score.ToString();
+                            _thisPlayer.UpdateEntries();
+                            _thisPlayer.SetRankImage(currentPlayer.rank);
+                        }
+                        else
+                        {
+                            _errorTextThisPlayer.SetActive(true);
+                            _infoThisPlayer.SetActive(false);
+                        }
                     }
                 }
                 onUpdateData.Invoke();
@@ -156,6 +179,7 @@ namespace YG
         private void SpawnPlayersList(LBData lb)
         {
             players = new LBPlayerDataYG[lb.players.Length];
+
             for (int i = 0; i < players.Length; i++)
             {
                 GameObject playerObj = Instantiate(playerDataPrefab, rootSpawnPlayersData);
@@ -164,6 +188,7 @@ namespace YG
 
                 int rank = lb.players[i].rank;
 
+                players[i].SetRankImage(rank);
                 players[i].data.name = LBMethods.AnonimName(lb.players[i].name);
                 players[i].data.rank = rank.ToString();
 

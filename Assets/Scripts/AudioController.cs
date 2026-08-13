@@ -4,8 +4,6 @@ using YG;
 
 public class AudioController : MonoBehaviour
 {
-    private const float LOOP_VOLUME_PERCENT = 0.5f;
-
     [SerializeField] private AudioSource _audio;
     [SerializeField] private AudioSource _loopAudio;
 
@@ -19,22 +17,14 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioClip _successfulAdvertisingSound;
 
     private bool _isSoundOn;
-    private float _volume;
+    private float _musicVolume;
+    private float _effectsVolume;
 
     private void Start()
     {
-        _volume = YandexGame.savesData.VolumeGame;
-        _isSoundOn = YandexGame.savesData.IsSoundOn;
-
-        if (!_isSoundOn)
-        {
-            _audio.volume = 0;
-            _loopAudio.volume = 0;
-            return;
-        }
-
-        _audio.volume = _volume / 100;
-        _loopAudio.volume = (_volume / 100) * LOOP_VOLUME_PERCENT;
+        UpdateSettings(YandexGame.savesData.IsSoundOn,
+            YandexGame.savesData.MusicVolume,
+            YandexGame.savesData.EffectsVolume);
     }
 
     public void PlaySceneThem(AudioClip clip)
@@ -65,9 +55,10 @@ public class AudioController : MonoBehaviour
         _loopAudio.Stop();
     }
 
-    public void UpdateSettings(bool isSoundOn, int volume)
+    public void UpdateSettings(bool isSoundOn, int musicVolume, int effectsVolume)
     {
-        _volume = volume;
+        _musicVolume = musicVolume;
+        _effectsVolume = effectsVolume;
         _isSoundOn = isSoundOn;
 
         if (!_isSoundOn)
@@ -77,7 +68,7 @@ public class AudioController : MonoBehaviour
             return;
         }
 
-        _audio.volume = _volume / 100;
-        _loopAudio.volume = _volume / 100;
+        _audio.volume = _effectsVolume / 100;
+        _loopAudio.volume = _musicVolume / 100;
     }
 }

@@ -43,7 +43,7 @@ MonoBehaviour:
   leaderboardEnable: 1
   saveScoreAnonymousPlayers: 1
   leaderboardSimulation:
-  - technoName: advanced
+  - technoName: Leaderboard
     entries: 'Test LeaderBoard
 
       Name: advanced
@@ -61,7 +61,7 @@ MonoBehaviour:
     players:
     - rank: 1
       name: anonymous
-      score: 10
+      score: 125
       photo: https://games-sdk.yandex.ru/games/api/sdk/v1/player/avatar/0/islands-retina-small
       uniqueID: 123
     - rank: 2
@@ -81,7 +81,7 @@ MonoBehaviour:
       uniqueID: 321
     - rank: 5
       name: Player this
-      score: 40
+      score: 99
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 000
     - rank: 6
@@ -89,9 +89,84 @@ MonoBehaviour:
       score: 50
       photo: https://justplaygames.ru/public/icon_player.png
       uniqueID: 321
+    - rank: 7
+      name: Player6
+      score: 40
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 8
+      name: 554355
+      score: 34
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
+    - rank: 9
+      name: zaagh
+      score: 150
+      photo: https://justplaygames.ru/public/icon_player.png
+      uniqueID: 321
     thisPlayer:
       rank: 2
-      score: 10
+      score: 50
   - technoName: simple
     entries: "Test LeaderBoard\nName: simple\n1. \u0441\u043A\u0440\u044B\u0442:
       10\n2. Max: 15\n3. Maria: 23"

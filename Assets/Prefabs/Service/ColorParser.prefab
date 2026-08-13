@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _orange: {r: 0.98490566, g: 0.3997082, b: 0, a: 0}
+  _darkGreen: {r: 0.07676069, g: 0.3283019, b: 0.06627981, a: 0}

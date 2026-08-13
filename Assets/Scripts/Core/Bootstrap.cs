@@ -28,7 +28,7 @@ public class Bootstrap : MonoBehaviour
     private void Start()
     {
         _delayLoading = new WaitForSeconds(INITIAL_DELAY);
-        _currentLevelData = _gameSettings.GetCurrentLevelLevel();
+        _currentLevelData = _gameSettings.GetCurrentLevel();
 
         StartCoroutine(StartingGame(_currentLevelData));
     }

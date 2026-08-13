@@ -1,13 +1,15 @@
 {
-    "idSave": 43,
+    "idSave": 210,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "Gold": 995336,
+    "Gold": 7474110,
     "CurrentLevelIndex": 0,
-    "LevelSpeedUpgrade": 3,
-    "LevelSizeUpgrade": 0,
-    "LevelTimeUpgrade": 1,
-    "VolumeGame": 6,
+    "LeaderboardScore": 14,
+    "LevelSpeedUpgrade": 5,
+    "LevelSizeUpgrade": 5,
+    "LevelTimeUpgrade": 6,
+    "MusicVolume": 3,
+    "EffectsVolume": 51,
     "IsSoundOn": true
 }

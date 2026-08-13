@@ -1,34 +1,28 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
-#if YG_TEXT_MESH_PRO
 using TMPro;
-#endif
 
 namespace YG
 {
     [HelpURL("https://www.notion.so/PluginYG-d457b23eee604b7aa6076116aab647ed#7f075606f6c24091926fa3ad7ab59d10")]
     public class LBPlayerDataYG : MonoBehaviour
     {
+        [SerializeField] private Image _rankImage;
+        [SerializeField] private Sprite[] _rankSprites;
+        [SerializeField] private Image _backgroundImage;
+        [SerializeField] private Color _thisPlayerColor;
+
         public ImageLoadYG imageLoad;
         public MonoBehaviour[] topPlayerActivityComponents = new MonoBehaviour[0];
         public MonoBehaviour[] thisPlayerActivityComponents = new MonoBehaviour[0];
 
-        [Serializable]
-        public struct TextLegasy
-        {
-            public Text rank, name, score;
-        }
-        public TextLegasy textLegasy;
-
-#if YG_TEXT_MESH_PRO
         [Serializable]
         public struct TextMP
         {
             public TextMeshProUGUI rank, name, score;
         }
         public TextMP textMP;
-#endif
 
         public class Data
         {
@@ -48,15 +42,10 @@ namespace YG
         [ContextMenu(nameof(UpdateEntries))]
         public void UpdateEntries()
         {
-            if (textLegasy.rank && data.rank != null) textLegasy.rank.text = data.rank.ToString();
-            if (textLegasy.name && data.name != null) textLegasy.name.text = data.name;
-            if (textLegasy.score && data.score != null) textLegasy.score.text = data.score.ToString();
-
-#if YG_TEXT_MESH_PRO
             if (textMP.rank && data.rank != null) textMP.rank.text = data.rank.ToString();
             if (textMP.name && data.name != null) textMP.name.text = data.name;
             if (textMP.score && data.score != null) textMP.score.text = data.score.ToString();
-#endif
+
             if (imageLoad)
             {
                 if (data.photoSprite)
@@ -85,10 +74,13 @@ namespace YG
                 }
             }
 
+            if(data.thisPlayer)
+                _backgroundImage.color = _thisPlayerColor;
+
             if (thisPlayerActivityComponents.Length > 0)
             {
                 if (data.thisPlayer)
-                {
+                {           
                     ActivityMomoObjects(thisPlayerActivityComponents, true);
                 }
                 else
@@ -104,6 +96,14 @@ namespace YG
                     objects[i].enabled = activity;
                 }
             }
+        }
+
+        public void SetRankImage(int index)
+        {
+            if (index <= 3)
+                _rankImage.sprite = _rankSprites[index-1];
+            else
+                _rankImage.enabled = false;
         }
     }
 }

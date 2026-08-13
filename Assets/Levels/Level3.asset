@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493e61910066d4c46ae50e0dd7d388b0, type: 3}
+  m_Name: Level3
+  m_EditorClassIdentifier: 
+  LevelNumber: 3
+  CubeTypes:
+  - CurrentColor: 1
+    CountCubes: 60
+  - CurrentColor: 0
+    CountCubes: 89
+  - CurrentColor: 6
+    CountCubes: 26
+  TotalCubes: 175
+  TotalBombs: 5
+  TimeLimit: 90
+  PixelArt: {fileID: 11400000, guid: add284159aeed3143a5a684bdbf1d37a, type: 2}
