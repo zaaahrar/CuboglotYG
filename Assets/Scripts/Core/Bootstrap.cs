@@ -36,9 +36,9 @@ public class Bootstrap : MonoBehaviour
     private IEnumerator StartingGame(LevelDataSO levelData)
     {
         _loadingScreen.Initialize();
-        _sceneLoader.Initialize(_timer);
+        _sceneLoader.Initialize();
         _loseController.Initialize();
-        _cubeCollector.Initialize(levelData, _fallDetector);
+        _cubeCollector.Initialize(levelData, _fallDetector, _timer);
         _progressView.Initialize(levelData.TotalCubes);
         _progressView.OnUpdateCounter(_cubeCollector.CurrentCubeCount, levelData.TotalCubes);
         _timerView.Initialize(levelData);

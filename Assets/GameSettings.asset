@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   Speed: 5
+  VictoryPercentage: 0.2
   LookDuration: 0.2
   MoveDuration: 0.5
   MinDistanceBetweenCubes: 2

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351899a8e87f545478e2cf02be57bac3, type: 3}
   m_Name: SizeUpgrade
   m_EditorClassIdentifier: 
-  Name: "\u0420\u0430\u0437\u043C\u0435\u0440"
+  NameRU: "\u0420\u0430\u0437\u043C\u0435\u0440"
+  NameEN: Size
+  NameTR: Boyut
   Upgrade: 1
   MaxLevel: 5
   Prices: e8030000d0070000b80b0000a00f000088130000
   StatValue: 0.07
-  UpgradeLevelKey: SIZE_UPGRADE_LEVEL
   Sprite: {fileID: 21300000, guid: 44746f336e431d445aca679bfba1a6ca, type: 3}

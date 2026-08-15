@@ -5,6 +5,7 @@ using YG;
 public class GameSettingsSO : ScriptableObject
 {
     public float Speed;
+    public float VictoryPercentage;
 
     [Header("Cube Falling")]
     public float LookDuration;

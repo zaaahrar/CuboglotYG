@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -7,6 +8,7 @@ public class LoseScreenView : MonoBehaviour
     [Inject] private AudioController _audio;
     [SerializeField] private LoseController _controller;
     [SerializeField] private GameObject _loseScreen;
+    [SerializeField] private TMP_Text _loseDecription;
     [SerializeField] private Button _restartButton;
     [SerializeField] private Button _exitMenuButton;
     [SerializeField] private Button _advertisingButton;
@@ -51,15 +53,19 @@ public class LoseScreenView : MonoBehaviour
         _audio.PlayClickSound();
     }
 
-    private void OnShow()
+    private void OnShow(string description, LoseReason loseReason)
     {
+        if(loseReason == LoseReason.NotEnoughCubes)
+            _advertisingButton.gameObject.SetActive(false);
+
         _loseScreen.SetActive(true);
+        _loseDecription.text = description;
         _audio.PlayBoomSound();
     }
 
     private void OnConinueGame()
     {
-        OnHide();
         _advertisingButton.gameObject.SetActive(false);
+        OnHide();
     }
 }

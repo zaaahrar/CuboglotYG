@@ -38,7 +38,7 @@ public class Upgrade : MonoBehaviour
         }
 
         UpdateInfoPrice();
-        _nameText.text = _upgrade.Name;
+        _nameText.text = Utils.GetTranslateText(_upgrade.NameRU, _upgrade.NameTR, _upgrade.NameEN);
         _upgradeImage.sprite = _upgrade.Sprite;
     }
 
@@ -73,7 +73,7 @@ public class Upgrade : MonoBehaviour
             _buyButton.interactable = false;
             _buyButton.gameObject.GetComponent<Image>().color = Color.gray;
             _goldImage.gameObject.SetActive(false);
-            _priceText.text = "Максимум";
+            _priceText.text = Utils.GetTranslateText("Максимум", "Maksimum", "Maximum");
         }
         else
         {

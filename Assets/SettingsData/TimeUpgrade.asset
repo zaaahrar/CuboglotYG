@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 351899a8e87f545478e2cf02be57bac3, type: 3}
   m_Name: TimeUpgrade
   m_EditorClassIdentifier: 
-  Name: "\u0422\u0430\u0439\u043C\u0435\u0440"
+  NameRU: "\u0422\u0430\u0439\u043C\u0435\u0440"
+  NameEN: Timer
+  NameTR: Zaman
   Upgrade: 0
   MaxLevel: 6
   Prices: f4010000e8030000dc050000d0070000c4090000b80b0000
   StatValue: 5
-  UpgradeLevelKey: TIME_UPGRADE_LEVEL
   Sprite: {fileID: 21300000, guid: 40e590710cf3bea418a40083b69b1db3, type: 3}

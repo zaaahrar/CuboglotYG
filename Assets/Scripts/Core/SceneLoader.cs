@@ -11,25 +11,14 @@ public class SceneLoader : MonoBehaviour
 
     [Inject] private CubeCollector _cubeCounter;
 
-    private Timer _timer;
-
     private void OnDisable()
     {
-        if (_timer == null)
-            return;
-
-        _cubeCounter.AllCubesCollected -= LoadPixelArtScene;
-        _timer.TimerFinished -= LoadPixelArtScene;
+        _cubeCounter.LevelComplete -= LoadPixelArtScene;
     }
 
-    public void Initialize(Timer timer)
+    public void Initialize()
     {
-        if(timer == null)
-            throw new ArgumentNullException(nameof(timer));
-
-        _timer = timer;
-        _cubeCounter.AllCubesCollected += LoadPixelArtScene;
-        _timer.TimerFinished += LoadPixelArtScene;
+        _cubeCounter.LevelComplete += LoadPixelArtScene;
     }
 
     public void LoadMainMenuScene() => SceneManager.LoadScene(MAIN_MENU_SCENE_INDEX);

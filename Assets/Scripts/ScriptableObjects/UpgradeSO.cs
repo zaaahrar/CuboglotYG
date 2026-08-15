@@ -3,7 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Upgrade", menuName = "Game/Upgrade")]
 public class UpgradeSO : ScriptableObject
 {
-    public string Name;
+    public string NameRU;
+    public string NameEN;
+    public string NameTR;
     public Upgrades Upgrade;
     public int MaxLevel;
     public int[] Prices;
