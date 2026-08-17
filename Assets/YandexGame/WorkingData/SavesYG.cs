@@ -24,6 +24,7 @@ namespace YG
         public int MusicVolume = 50;
         public int EffectsVolume = 50;
         public bool IsSoundOn = true;
+        public bool IsTutorialCompleted = false;
 
         public SavesYG()
         {

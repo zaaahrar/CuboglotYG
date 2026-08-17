@@ -16,6 +16,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private LoseController _loseController;
     [SerializeField] private Timer _timer;
     [SerializeField] private TimerView _timerView;
+    [SerializeField] private Tutorial _tutorial;
 
     [Inject] private AudioController _audio;
     [Inject] private GameSettingsSO _gameSettings;
@@ -35,6 +36,7 @@ public class Bootstrap : MonoBehaviour
 
     private IEnumerator StartingGame(LevelDataSO levelData)
     {
+        YandexGame.ResetSaveProgress();
         _loadingScreen.Initialize();
         _sceneLoader.Initialize();
         _loseController.Initialize();
@@ -54,7 +56,16 @@ public class Bootstrap : MonoBehaviour
         yield return _delayLoading;
         _loadingScreen.Hide();
         _audio.PlaySceneThem(_gameplayThem);
+        TryStartTutorial();
         StartCoroutine(_timer.StartTimer());
         YandexGame.GameplayStart();
+    }
+
+    private void TryStartTutorial()
+    {
+        if (YandexGame.savesData.IsTutorialCompleted)
+            return;
+
+        _tutorial.StartTutorial();
     }
 }
