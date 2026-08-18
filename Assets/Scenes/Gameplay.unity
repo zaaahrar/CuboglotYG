@@ -362,7 +362,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -681,6 +681,11 @@ MonoBehaviour:
   _button: {fileID: 1469599489}
   _isLastWindow: 0
   _tutorial: {fileID: 279972115}
+  _useMobileText: 0
+  _texts: []
+  _mobileTextsRU: []
+  _mobileTextsEN: []
+  _mobileTextsTR: []
 --- !u!1 &48299223
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,7 +835,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -1911,7 +1916,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -3359,6 +3364,11 @@ MonoBehaviour:
   _button: {fileID: 264685333}
   _isLastWindow: 0
   _tutorial: {fileID: 279972115}
+  _useMobileText: 0
+  _texts: []
+  _mobileTextsRU: []
+  _mobileTextsEN: []
+  _mobileTextsTR: []
 --- !u!1 &324666659
 GameObject:
   m_ObjectHideFlags: 0
@@ -4037,7 +4047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -5.5997314, y: -3.10083}
+  m_AnchoredPosition: {x: -5.5996094, y: -3.10083}
   m_SizeDelta: {x: 26.4, y: 14.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338360803
@@ -4141,7 +4151,7 @@ MonoBehaviour:
     \u0431\u0443\u0434\u0435\u0442 \u043A\u0430\u0440\u0442\u0438\u043D\u043A\u0430!"
   en: 'After collecting the cubes, the pixel art will begin to be assembled
 
-    
+
 
     The
     more cubes you collect, the more complete the picture will be!'
@@ -4430,7 +4440,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -4708,7 +4718,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -5261,10 +5271,10 @@ MonoBehaviour:
   en: 'For completing each level, you receive Coins, which are the main currency
     of the game
 
-    
 
-    The better you complete a level, the more Coins will
-    fall into your piggy bank
+
+    The better you complete a level, the more Coins will fall
+    into your piggy bank
 
     this is influenced by <color=yellow>Stars</color>'
   tr: "Her seviyeyi tamamlad\u0131\u011F\u0131nda Madeni Paralar kazan\u0131rs\u0131n,
@@ -5783,7 +5793,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -6799,6 +6809,127 @@ MonoBehaviour:
   processTranslateLabel: 
   componentTextField: 1
   countLang: 0
+--- !u!1001 &599068250
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2076848279}
+    m_Modifications:
+    - target: {fileID: 2929252283123773937, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773937, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8851317
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773937, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.000078397
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -285
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 285
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Name
+      value: Fixed Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9472795
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252285020698103, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
 --- !u!1 &599318938
 GameObject:
   m_ObjectHideFlags: 0
@@ -7517,6 +7648,11 @@ MonoBehaviour:
   _button: {fileID: 2128991011}
   _isLastWindow: 0
   _tutorial: {fileID: 279972115}
+  _useMobileText: 0
+  _texts: []
+  _mobileTextsRU: []
+  _mobileTextsEN: []
+  _mobileTextsTR: []
 --- !u!1 &663971887
 GameObject:
   m_ObjectHideFlags: 0
@@ -7691,7 +7827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u0412\u0401\u0417\u0414\u042B \u0418 \u0418\u0425 \u0411\u041E\u041D\u0423\u0421"
+  m_text: STARS AND THEIR BONEYARD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 359b564e3112bcf4399bde2b0dd96464, type: 2}
   m_sharedMaterial: {fileID: -4531160242396075366, guid: 359b564e3112bcf4399bde2b0dd96464, type: 2}
@@ -7730,7 +7866,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -9241,6 +9377,11 @@ MonoBehaviour:
   _button: {fileID: 380749729}
   _isLastWindow: 1
   _tutorial: {fileID: 279972115}
+  _useMobileText: 0
+  _texts: []
+  _mobileTextsRU: []
+  _mobileTextsEN: []
+  _mobileTextsTR: []
 --- !u!1 &873443525
 GameObject:
   m_ObjectHideFlags: 0
@@ -10530,6 +10671,29 @@ MonoBehaviour:
   _button: {fileID: 188990692}
   _isLastWindow: 0
   _tutorial: {fileID: 279972115}
+  _useMobileText: 1
+  _texts:
+  - {fileID: 1910586960}
+  _mobileTextsRU:
+  - "\u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0434\u044B\u0440\u044B -
+    <color=yellow>\u0434\u0436\u043E\u0439\u0441\u0442\u0438\u043A \u0432 \u043F\u0440\u0430\u0432\u043E\u043C
+    \u043D\u0438\u0436\u043D\u0435\u043C \u0443\u0433\u043B\u0443</color>\r\n\u0412\u043E\u0434\u0438
+    \u043F\u0430\u043B\u044C\u0446\u0435\u043C \u043F\u043E \u0434\u0436\u043E\u0439\u0441\u0442\u0438\u043A\u0443
+    - \u0434\u044B\u0440\u0430 \u0434\u0432\u0438\u0436\u0435\u0442\u0441\u044F \u0437\u0430
+    \u043D\u0438\u043C. \u0421\u043E\u0431\u0435\u0440\u0438 \u0432\u0441\u0435 \u043A\u0443\u0431\u044B
+    \u043D\u0430 \u0443\u0440\u043E\u0432\u043D\u0435"
+  _mobileTextsEN:
+  - 'Move the hole - <color=yellow>joystick in the bottom right corner</color>
+
+    Swipe
+    your finger on the joystick - the hole follows it
+
+    Collect all cubes on
+    the level'
+  _mobileTextsTR:
+  - "Deli\u011Fi hareket ettir - <color=yellow>joystick sa\u011F alt k\xF6\u015Fede</color>\r\nParma\u011F\u0131n\u0131
+    joystickte kayd\u0131r - delik onu takip eder\r\nSeviyedeki t\xFCm k\xFCpleri
+    topla"
 --- !u!1 &1033370324
 GameObject:
   m_ObjectHideFlags: 0
@@ -12078,6 +12242,11 @@ MonoBehaviour:
   _button: {fileID: 1518317704}
   _isLastWindow: 0
   _tutorial: {fileID: 279972115}
+  _useMobileText: 0
+  _texts: []
+  _mobileTextsRU: []
+  _mobileTextsEN: []
+  _mobileTextsTR: []
 --- !u!1 &1279362856
 GameObject:
   m_ObjectHideFlags: 0
@@ -12597,6 +12766,11 @@ MonoBehaviour:
   _button: {fileID: 2134910034}
   _isLastWindow: 0
   _tutorial: {fileID: 279972115}
+  _useMobileText: 0
+  _texts: []
+  _mobileTextsRU: []
+  _mobileTextsEN: []
+  _mobileTextsTR: []
 --- !u!1 &1362763581
 GameObject:
   m_ObjectHideFlags: 0
@@ -17377,7 +17551,7 @@ GameObject:
   - component: {fileID: 1910586958}
   - component: {fileID: 1910586961}
   - component: {fileID: 1910586960}
-  - component: {fileID: 1910586959}
+  - component: {fileID: 1910586962}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -17404,67 +17578,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.10005}
   m_SizeDelta: {x: 1042.4, y: 247.8}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1910586959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910586957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textMPComponent: {fileID: 1910586960}
-  uniqueFontTMP: {fileID: 0}
-  textLComponent: {fileID: 0}
-  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
-  text: 
-  ru: "\u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0434\u044B\u0440\u044B
-    - <color=yellow>\u0426\u0424\u042B\u0412</color>\r\n\r\n\u0414\u0432\u0438\u0433\u0430\u0439
-    \u0434\u044B\u0440\u0443, \u0447\u0442\u043E\u0431\u044B \u0441\u043E\u0431\u0440\u0430\u0442\u044C
-    \u0432\u0441\u0435 \u043A\u0443\u0431\u044B \u043D\u0430 \u0443\u0440\u043E\u0432\u043D\u0435"
-  en: 'The movement of the hole is <color=yellow>WASD</color>.
-
-    
-
-    Move
-    the hole to collect all the cubes on the level'
-  tr: "Deli\u011Fi hareket ettir - <color=yellow>WASD</color>\r\n\r\n Seviyedeki
-    t\xFCm k\xFCpleri toplamak i\xE7in deli\u011Fi hareket ettir"
-  az: 
-  be: 
-  he: 
-  hy: 
-  ka: 
-  et: 
-  fr: 
-  kk: 
-  ky: 
-  lt: 
-  lv: 
-  ro: 
-  tg: 
-  tk: 
-  uk: 
-  uz: 
-  es: 
-  pt: 
-  ar: 
-  id: 
-  ja: 
-  it: 
-  de: 
-  hi: 
-  changeOnlyFont: 0
-  fontNumber: 0
-  uniqueFont: {fileID: 0}
-  additionalText: {fileID: 0}
-  textHeight: 61
-  processTranslateLabel: 
-  componentTextField: 1
-  countLang: 0
 --- !u!114 &1910586960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17515,8 +17628,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17565,6 +17678,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1910586957}
   m_CullTransparentMesh: 1
+--- !u!114 &1910586962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910586957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 1910586960}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0434\u044B\u0440\u044B
+    - <color=yellow>\u0426\u0424\u042B\u0412</color>\r\n\r\n\u0414\u0432\u0438\u0433\u0430\u0439
+    \u0434\u044B\u0440\u0443, \u0447\u0442\u043E\u0431\u044B \u0441\u043E\u0431\u0440\u0430\u0442\u044C
+    \u0432\u0441\u0435 \u043A\u0443\u0431\u044B \u043D\u0430 \u0443\u0440\u043E\u0432\u043D\u0435"
+  en: 'The movement of the hole is <color=yellow>WASD</color>
+
+
+    Move the hole
+    to collect all the cubes on the level'
+  tr: "Deli\u011Fi hareket ettir - <color=yellow>WASD</color>\r\n\r\n Seviyedeki
+    t\xFCm k\xFCpleri toplamak i\xE7in deli\u011Fi hareket ettir"
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 61
+  processTranslateLabel: 
+  componentTextField: 1
+  countLang: 0
 --- !u!1 &1916491981
 GameObject:
   m_ObjectHideFlags: 0
@@ -17656,6 +17829,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916491981}
   m_CullTransparentMesh: 1
+--- !u!114 &1958352153 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 599068250}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &1958352154 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
+  m_PrefabInstance: {fileID: 599068250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1961551913
 GameObject:
   m_ObjectHideFlags: 0
@@ -18969,6 +19158,7 @@ RectTransform:
   - {fileID: 1408292921}
   - {fileID: 1423956454}
   - {fileID: 1087955516}
+  - {fileID: 1958352154}
   - {fileID: 1001881812}
   - {fileID: 1177887855}
   - {fileID: 2084014707}
@@ -19762,6 +19952,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3274793083882829400, guid: 5d193179173f52345b784decf059e25d, type: 3}
+      propertyPath: _joystick
+      value: 
+      objectReference: {fileID: 1958352153}
+    - target: {fileID: 5701607365392280043, guid: 5d193179173f52345b784decf059e25d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7763851315656838593, guid: 5d193179173f52345b784decf059e25d, type: 3}
       propertyPath: m_Name
       value: Player

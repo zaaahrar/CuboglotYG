@@ -74,10 +74,15 @@ public class CubeCollector : MonoBehaviour
 
     private void OnCheckWin()
     {
-        if (_currentCubeCount / _currentLevelData.TotalCubes < _gameSettings.VictoryPercentage || _currentCubeCount == 0)
+        if ((float)_currentCubeCount / _currentLevelData.TotalCubes < _gameSettings.VictoryPercentage || _currentCubeCount == 0)
+        {
             LoseGame?.Invoke(Utils.GetTranslateText(_loseDescriptionRU, _loseDescriptionTR, _loseDescriptionEN), LoseReason.NotEnoughCubes);
+        }
         else
+        {
             LevelComplete?.Invoke();
+            YandexGame.GameplayStop();
+        }
     }
 
     private void OnCollectCube(Cube cube)

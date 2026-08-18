@@ -36,7 +36,6 @@ public class Bootstrap : MonoBehaviour
 
     private IEnumerator StartingGame(LevelDataSO levelData)
     {
-        YandexGame.ResetSaveProgress();
         _loadingScreen.Initialize();
         _sceneLoader.Initialize();
         _loseController.Initialize();

@@ -37,6 +37,7 @@ public class LoseController : MonoBehaviour
 
     public void OnGameLose(string loseDescription, LoseReason loseReason)
     {
+        YandexGame.GameplayStop();
         ShowWindow?.Invoke(loseDescription, loseReason);
         Time.timeScale = 0;
     }

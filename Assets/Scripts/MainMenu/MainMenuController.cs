@@ -1,4 +1,5 @@
 using UnityEngine;
+using YG;
 using Zenject;
 
 public class MainMenuController : MonoBehaviour
@@ -12,6 +13,7 @@ public class MainMenuController : MonoBehaviour
     private void Start()
     {
         _audioController.PlaySceneThem(_menuThem);
+        YandexGame.GameplayStop();
     }
 
     public void StartGame()

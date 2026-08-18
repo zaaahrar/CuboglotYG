@@ -21,6 +21,7 @@ public class PauseView : MonoBehaviour
         _closeButton.onClick.AddListener(OnHide);
         _exitInMenuButton.onClick.AddListener(_controller.ExitInMenu);
         _restartButton.onClick.AddListener(_controller.Restart);
+        //YandexGame.onHideWindowGame += OnShow;
     }
 
     private void OnDisable()
@@ -29,6 +30,7 @@ public class PauseView : MonoBehaviour
         _closeButton.onClick.RemoveListener(OnHide);
         _exitInMenuButton.onClick.RemoveListener(OnExitInMenu);
         _restartButton.onClick.RemoveListener(OnRestart);
+        //YandexGame.onHideWindowGame -= OnShow;
     }
 
     private void OnExitInMenu()
@@ -47,13 +49,16 @@ public class PauseView : MonoBehaviour
     {
         _audio.PlayClickSound();
         _window.SetActive(true);
+        YandexGame.GameplayStop();
         Time.timeScale = 0;
     }
 
     private void OnHide()
     {
         Time.timeScale = 1;
+        YandexGame.GameplayStart();
         _audio.PlayClickSound();
         _window.SetActive(false);
-    } 
+    }
+
 }
