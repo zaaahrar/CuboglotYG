@@ -11,6 +11,7 @@ namespace YG
         public string language = "ru";
         public bool promptDone;
 
+        public bool IsAutoLanguage = true;
         public int Gold = 0;
         public int CurrentLevelIndex = 0;
         public int LeaderboardScore = 0;

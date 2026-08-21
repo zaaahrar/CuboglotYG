@@ -20,11 +20,16 @@ public class AudioController : MonoBehaviour
     private float _musicVolume;
     private float _effectsVolume;
 
-    private void Start()
+    private void OnEnable()
     {
         UpdateSettings(YandexGame.savesData.IsSoundOn,
             YandexGame.savesData.MusicVolume,
             YandexGame.savesData.EffectsVolume);
+    }
+
+    private void OnDisable()
+    {
+        
     }
 
     public void PlaySceneThem(AudioClip clip)

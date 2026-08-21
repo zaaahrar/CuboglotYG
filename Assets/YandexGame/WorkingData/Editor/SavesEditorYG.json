@@ -1,16 +1,17 @@
 {
-    "idSave": 341,
+    "idSave": 579,
     "isFirstSession": false,
-    "language": "en",
+    "language": "tr",
     "promptDone": false,
+    "IsAutoLanguage": false,
     "Gold": 495929,
     "CurrentLevelIndex": 5,
     "LeaderboardScore": 0,
     "LevelSpeedUpgrade": 1,
     "LevelSizeUpgrade": 2,
     "LevelTimeUpgrade": 1,
-    "MusicVolume": 50,
-    "EffectsVolume": 50,
+    "MusicVolume": 72,
+    "EffectsVolume": 57,
     "IsSoundOn": true,
     "IsTutorialCompleted": true
 }

@@ -21,7 +21,6 @@ public class PauseView : MonoBehaviour
         _closeButton.onClick.AddListener(OnHide);
         _exitInMenuButton.onClick.AddListener(_controller.ExitInMenu);
         _restartButton.onClick.AddListener(_controller.Restart);
-        //YandexGame.onHideWindowGame += OnShow;
     }
 
     private void OnDisable()
@@ -30,7 +29,6 @@ public class PauseView : MonoBehaviour
         _closeButton.onClick.RemoveListener(OnHide);
         _exitInMenuButton.onClick.RemoveListener(OnExitInMenu);
         _restartButton.onClick.RemoveListener(OnRestart);
-        //YandexGame.onHideWindowGame -= OnShow;
     }
 
     private void OnExitInMenu()
