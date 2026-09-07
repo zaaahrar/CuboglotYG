@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbe728934cef118459320a322ba22cc1, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  Speed: 5
+  VictoryPercentage: 0.2
+  LookDuration: 0.2
+  MoveDuration: 0.5
+  MinDistanceBetweenCubes: 2
+  MaxAttempts: 100
+  PostBuildDelay: 2
+  BlockPlacementDelay: 0.015
+  ExplodeForce: 25
+  Duration: 0.5
+  PositionStrength: 0.3
+  Vibrato: 10
+  LevelsBeforeAd: 3
+  LevelsData:
+  - {fileID: 11400000, guid: 64d7bd47b8d2fcd49b93fb69720c5ea8, type: 2}
+  - {fileID: 11400000, guid: 74fdef1022281654b9a257d451e77091, type: 2}
+  - {fileID: 11400000, guid: b6e235001081c914ea38143c3ef1ffe7, type: 2}
+  - {fileID: 11400000, guid: b8ae23ee2a4e72c48bb71260c5899531, type: 2}
+  - {fileID: 11400000, guid: f73b350c7e029d44aa9d43629614831e, type: 2}
+  - {fileID: 11400000, guid: 7eed45d15abb8bd47ba212a223ed521d, type: 2}
+  - {fileID: 11400000, guid: 83ee659e5acf09b4da0e1042cbbc88eb, type: 2}
+  - {fileID: 11400000, guid: cb46c234ebf05d742874a5bad5a9a0d2, type: 2}
+  - {fileID: 11400000, guid: ffedef69e502a7746beb9c6ef4152483, type: 2}
+  - {fileID: 11400000, guid: d20ebfbd541282544818de7a414f1ddd, type: 2}
+  - {fileID: 11400000, guid: 202e8f0653db90143ba00a51a92daaba, type: 2}
+  - {fileID: 11400000, guid: 99107a82a7e233d4f9b504cd5b0f30ee, type: 2}
+  - {fileID: 11400000, guid: f0057152982df8348ae951cb4372c86d, type: 2}
+  - {fileID: 11400000, guid: a848569452fec8746a17ec6828fb5b9d, type: 2}
+  - {fileID: 11400000, guid: 678c8b80bfc07b94d9cb9988f790c9fb, type: 2}

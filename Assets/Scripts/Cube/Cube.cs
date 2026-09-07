@@ -6,7 +6,7 @@ public class Cube : MonoBehaviour
 {
     [SerializeField] private Renderer _renderer;
     [SerializeField] private Rigidbody _rigidBody;
-    [SerializeField] private GameSettingsSO _gameSettings;
+    [Inject] private GameSettingsSO _gameSettings;
     [Inject] private ColorParser _colorParser;
 
     private Material _material;

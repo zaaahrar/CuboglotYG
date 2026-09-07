@@ -5,6 +5,10 @@ public class ColorParser : MonoBehaviour
     [SerializeField] private Color _orange;
     [SerializeField] private Color _darkGreen;
     [SerializeField] private Color _brown;
+    [SerializeField] private Color _pink;
+    [SerializeField] private Color _darkPink;
+    [SerializeField] private Color _darkBlue;
+    [SerializeField] private Color _blue;
 
     public Color GetColor(ColorCube color)
     {
@@ -15,7 +19,7 @@ public class ColorParser : MonoBehaviour
             case ColorCube.Black:
                 return Color.black;
             case ColorCube.Blue:
-                return Color.blue;
+                return _blue;
             case ColorCube.Yellow:
                 return Color.yellow;
             case ColorCube.Red:
@@ -30,6 +34,12 @@ public class ColorParser : MonoBehaviour
                 return _darkGreen;
             case ColorCube.Brown:
                 return _brown;
+            case ColorCube.Pink:
+                return _pink;
+            case ColorCube.DarkPink:
+                return _darkPink;
+            case ColorCube.DarkBlue:
+                return _darkBlue;
             default:
                 return Color.white;
         }

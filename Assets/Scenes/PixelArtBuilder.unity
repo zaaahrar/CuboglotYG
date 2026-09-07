@@ -562,7 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b206e19e2fe4b8e4d84da461f96e7af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelData: {fileID: 11400000, guid: 7eed45d15abb8bd47ba212a223ed521d, type: 2}
+  _levelData: {fileID: 11400000, guid: 678c8b80bfc07b94d9cb9988f790c9fb, type: 2}
   _spawner: {fileID: 864012687}
   _parentCubes: {fileID: 1323996341}
   _winController: {fileID: 1693931244}

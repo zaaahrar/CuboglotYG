@@ -15,6 +15,7 @@ namespace YG
         public int Gold = 0;
         public int CurrentLevelIndex = 0;
         public int LeaderboardScore = 0;
+        public int LevelsSinceLastAd = 0;
 
         [Header("Upgrades")]
         public int LevelSpeedUpgrade = 0;

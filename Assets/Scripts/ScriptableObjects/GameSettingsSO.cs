@@ -23,6 +23,9 @@ public class GameSettingsSO : ScriptableObject
     public float PositionStrength = 0.3f;
     public int Vibrato = 10;
 
+    [Header("AD")]
+    public int LevelsBeforeAd = 3;
+
     [Header("Levels")]
     public LevelDataSO[] LevelsData;
 
@@ -30,9 +33,13 @@ public class GameSettingsSO : ScriptableObject
 
     public void SetRandomLevel()
     {
-        YandexGame.savesData.CurrentLevelIndex = Random.Range(0, LevelsData.Length);
-        Debug.Log(YandexGame.savesData.CurrentLevelIndex);
-        Debug.Log(LevelsData.Length);
+        int newLevel;
+
+        do
+            newLevel = Random.Range(0, LevelsData.Length);
+        while(newLevel == YandexGame.savesData.CurrentLevelIndex);
+
+        YandexGame.savesData.CurrentLevelIndex = 14;
         YandexGame.SaveProgress();
     }
 }

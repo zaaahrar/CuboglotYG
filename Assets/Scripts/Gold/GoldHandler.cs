@@ -20,7 +20,7 @@ public class GoldHandler : MonoBehaviour
         }
     }
 
-    public void Start() => _currentGold = YandexGame.savesData.Gold + 500000;
+    public void Start() => _currentGold = YandexGame.savesData.Gold;
 
     public void AddGold(int gold)
     {

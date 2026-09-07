@@ -25,11 +25,13 @@ public class Bootstrap : MonoBehaviour
 
     private LevelDataSO _currentLevelData;
     private WaitForSeconds _delayLoading;
+    private AD _ad;
 
     private void Start()
     {
         _delayLoading = new WaitForSeconds(INITIAL_DELAY);
         _currentLevelData = _gameSettings.GetCurrentLevel();
+        _ad = new(_gameSettings);
 
         StartCoroutine(StartingGame(_currentLevelData));
     }
@@ -54,6 +56,7 @@ public class Bootstrap : MonoBehaviour
         _loadingScreen.ChangeSlider(100);
         yield return _delayLoading;
         _loadingScreen.Hide();
+        _ad.TryShowFullscreenAd();
         _audio.PlaySceneThem(_gameplayThem);
         TryStartTutorial();
         StartCoroutine(_timer.StartTimer());

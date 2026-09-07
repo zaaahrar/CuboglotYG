@@ -42,5 +42,8 @@ public enum ColorCube
     Gray,
     Green,
     DarkGreen,
-    Brown
+    Brown,
+    Pink,
+    DarkPink,
+    DarkBlue
 }

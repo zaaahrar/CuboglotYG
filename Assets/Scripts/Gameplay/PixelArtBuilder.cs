@@ -89,6 +89,11 @@ public class PixelArtBuilder : MonoBehaviour
         int brown = 0;
         int yellow = 0;
         int red = 0;
+        int orange = 0;
+        int pink = 0;
+        int darkPink = 0;
+        int darkBlue = 0;
+        int blue = 0;
 
         foreach (var pixel in _levelData.PixelArt.Pixels)
         {
@@ -109,11 +114,22 @@ public class PixelArtBuilder : MonoBehaviour
                 yellow++;
             if (pixel.ColorPixel == ColorCube.Red)
                 red++;
+            if (pixel.ColorPixel == ColorCube.Orange)
+                orange++;
+            if (pixel.ColorPixel == ColorCube.Pink)
+                pink++;
+            if (pixel.ColorPixel == ColorCube.DarkPink)
+                darkPink++;
+            if (pixel.ColorPixel == ColorCube.DarkBlue)
+                darkBlue++;
+            if (pixel.ColorPixel == ColorCube.Blue)
+                blue++;
         }
 
         Debug.Log($"green: {green}, black: {black}, white: {white}," +
             $" darkGreen: {darkGreen}, gray: {gray}, brown: {brown}, yellow: {yellow}," +
-            $"red: {red}");
-        Debug.Log($"total: {green + darkGreen + black + white + gray+ brown+ yellow+red}");
+            $"red: {red}, orange: {orange}, pink: {pink}, darkPink: {darkPink}, darkBlue: {darkBlue}," +
+            $"blue: {blue}");
+        Debug.Log($"total: {green + darkGreen + black + white + gray+ brown+ yellow+red+orange+pink+darkPink+darkBlue+blue}");
     }
 }

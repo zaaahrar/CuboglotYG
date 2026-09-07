@@ -27,11 +27,6 @@ public class AudioController : MonoBehaviour
             YandexGame.savesData.EffectsVolume);
     }
 
-    private void OnDisable()
-    {
-        
-    }
-
     public void PlaySceneThem(AudioClip clip)
     {
         _loopAudio.clip = clip;
