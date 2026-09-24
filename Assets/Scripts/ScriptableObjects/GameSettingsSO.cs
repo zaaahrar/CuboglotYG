@@ -39,7 +39,7 @@ public class GameSettingsSO : ScriptableObject
             newLevel = Random.Range(0, LevelsData.Length);
         while(newLevel == YandexGame.savesData.CurrentLevelIndex);
 
-        YandexGame.savesData.CurrentLevelIndex = 14;
+        YandexGame.savesData.CurrentLevelIndex = 18;
         YandexGame.SaveProgress();
     }
 }

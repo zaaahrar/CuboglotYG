@@ -10,13 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 493e61910066d4c46ae50e0dd7d388b0, type: 3}
-  m_Name: TestLevel
+  m_Name: Level16
   m_EditorClassIdentifier: 
-  LevelNumber: 9
+  LevelNumber: 16
   CubeTypes:
+  - CurrentColor: 1
+    CountCubes: 4
   - CurrentColor: 10
-    CountCubes: 1
-  TotalCubes: 1
+    CountCubes: 154
+  - CurrentColor: 11
+    CountCubes: 69
+  - CurrentColor: 0
+    CountCubes: 17
+  TotalCubes: 244
   TotalBombs: 4
-  TimeLimit: 120
-  PixelArt: {fileID: 11400000, guid: 56d733b19f1ec7f4595fe1e31463d999, type: 2}
+  TimeLimit: 80
+  PixelArt: {fileID: 11400000, guid: 7dec1c8c11cbbed488b7133c8b7d16d0, type: 2}

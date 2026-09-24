@@ -15,6 +15,7 @@ public class WinScreenView : MonoBehaviour
     [SerializeField] private LevelDataSO _levelData;
     [SerializeField] private WinController _controller;
     [SerializeField] private ErrorWindowController _errorController;
+    [SerializeField] private UpgradeScreenView _upgradeScreenView;
     [SerializeField] private GameObject _winScreen;
     [SerializeField] private TMP_Text _collectCubesText;
     [SerializeField] private TMP_Text _goldText;
@@ -93,5 +94,7 @@ public class WinScreenView : MonoBehaviour
     {
         _advertisingButton.gameObject.SetActive(false);
         _audioController.PlaySuccessfulAdvertisingSound();
+        _upgradeScreenView.UpdateColorButtonsUpgrades();
+        _upgradeScreenView.SetNotification();
     }
 }

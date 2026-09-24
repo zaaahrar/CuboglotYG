@@ -948,6 +948,8 @@ MonoBehaviour:
   _buyButton: {fileID: 2058905721336238293}
   _levelInstance: {fileID: 1408555127866329620, guid: 6e09aa6f184655e4799e9be02fd1c2f7, type: 3}
   _levelParent: {fileID: 1300746259590942256}
+  _buttonColorAffordable: {r: 0.28627452, g: 0.7372549, b: 0.050980393, a: 1}
+  _buttonColorUnaffordable: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
 --- !u!1 &3019520314233344527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1225,8 @@ MonoBehaviour:
   _buyButton: {fileID: 3428201210661952234}
   _levelInstance: {fileID: 1408555127866329620, guid: 6e09aa6f184655e4799e9be02fd1c2f7, type: 3}
   _levelParent: {fileID: 7001520538910757211}
+  _buttonColorAffordable: {r: 0.28627452, g: 0.7372549, b: 0.050980393, a: 1}
+  _buttonColorUnaffordable: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
 --- !u!1 &3846119801762270719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1637,7 +1641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.94716984, g: 0.6652704, b: 0.41282305, a: 1}
+  m_Color: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1679,7 +1683,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1736,7 +1740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.5773585, g: 0.31809184, b: 0.07734425, a: 0.7607843}
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.7607843}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!1 &4738659876187364972
@@ -2145,7 +2149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.94716984, g: 0.6652704, b: 0.41282305, a: 1}
+  m_Color: {r: 0.28265893, g: 0.735849, b: 0.0485937, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2187,7 +2191,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2244,7 +2248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.5773585, g: 0.31809184, b: 0.07734425, a: 0.7607843}
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.7607843}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!1 &5417836112069181225
@@ -2308,6 +2312,8 @@ MonoBehaviour:
   _buyButton: {fileID: 2051211587352173011}
   _levelInstance: {fileID: 1408555127866329620, guid: 6e09aa6f184655e4799e9be02fd1c2f7, type: 3}
   _levelParent: {fileID: 5402028458767790742}
+  _buttonColorAffordable: {r: 0.28627452, g: 0.7372549, b: 0.050980393, a: 1}
+  _buttonColorUnaffordable: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
 --- !u!1 &6467055504222227663
 GameObject:
   m_ObjectHideFlags: 0
@@ -3323,7 +3329,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3380,7 +3386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.5773585, g: 0.31809184, b: 0.07734425, a: 0.7607843}
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.7607843}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!1 &8453755015182070787

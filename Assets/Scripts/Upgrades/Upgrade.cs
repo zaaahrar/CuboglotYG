@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Zenject;
 using YG;
+using System;
 
 public class Upgrade : MonoBehaviour
 {
@@ -20,10 +21,20 @@ public class Upgrade : MonoBehaviour
     [SerializeField] private GameObject _levelInstance;
     [SerializeField] private Transform _levelParent;
 
+    [Header("Button Colors")]
+    [SerializeField] private Color _buttonColorAffordable;
+    [SerializeField] private Color _buttonColorUnaffordable;
+
+    public event Action PurchaseCompleted;
+
     private int _currentLevel = 0;
     private List<GameObject> _levelImages = new List<GameObject>();
 
-    private void Start()
+    private void OnEnable() => _buyButton.onClick.AddListener(Buy);
+
+    private void OnDisable() => _buyButton.onClick.RemoveListener(Buy);
+
+    public void Initialize()
     {
         for (int i = 0; i < _upgrade.MaxLevel; i++)
             _levelImages.Add(Instantiate(_levelInstance, _levelParent));
@@ -37,20 +48,10 @@ public class Upgrade : MonoBehaviour
                 _levelImages[i].GetComponent<Image>().color = Color.green;
         }
 
-        UpdateInfoPrice();
         _nameText.text = Utils.GetTranslateText(_upgrade.NameRU, _upgrade.NameTR, _upgrade.NameEN);
         _upgradeImage.sprite = _upgrade.Sprite;
-    }
-
-    private void OnEnable()
-    {
         UpdateInfoPrice();
-        _buyButton.onClick.AddListener(Buy);
-    }
-
-    private void OnDisable()
-    {
-        _buyButton.onClick.RemoveListener(Buy);
+        UpdateColorButton();
     }
 
     public void Buy()
@@ -63,7 +64,25 @@ public class Upgrade : MonoBehaviour
             SaveLevel(_currentLevel);
             UpdateInfoPrice();
             _levelImages[_currentLevel - 1].GetComponent<Image>().color = Color.green;
+            PurchaseCompleted.Invoke();
         }
+    }
+
+    public void UpdateColorButton()
+    {
+        if (CanBuy())
+            _buyButton.image.color = _buttonColorAffordable;
+        else
+            _buyButton.image.color = _buttonColorUnaffordable;
+    }
+
+    public bool CanBuy()
+    {
+        if (_currentLevel >= _upgrade.MaxLevel)
+            return false;
+
+        Debug.Log(gameObject.name + (_goldHandler.CurrentGold >= _upgrade.Prices[_currentLevel]) + _upgrade.Prices[_currentLevel].ToString());
+        return _goldHandler.CurrentGold >= _upgrade.Prices[_currentLevel];
     }
 
     private void UpdateInfoPrice()

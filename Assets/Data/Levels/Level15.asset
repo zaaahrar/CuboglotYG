@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493e61910066d4c46ae50e0dd7d388b0, type: 3}
   m_Name: Level15
   m_EditorClassIdentifier: 
-  LevelNumber: 14
+  LevelNumber: 15
   CubeTypes:
   - CurrentColor: 1
     CountCubes: 4
   - CurrentColor: 3
-    CountCubes: 153
+    CountCubes: 154
   - CurrentColor: 12
     CountCubes: 69
   - CurrentColor: 0
     CountCubes: 17
-  TotalCubes: 243
+  TotalCubes: 244
   TotalBombs: 4
   TimeLimit: 80
   PixelArt: {fileID: 11400000, guid: dd9146162497c45449fb90296cc77183, type: 2}
