@@ -30,9 +30,15 @@ public class Upgrade : MonoBehaviour
     private int _currentLevel = 0;
     private List<GameObject> _levelImages = new List<GameObject>();
 
-    private void OnEnable() => _buyButton.onClick.AddListener(Buy);
-
-    private void OnDisable() => _buyButton.onClick.RemoveListener(Buy);
+    private void OnEnable()
+    {
+        _buyButton.onClick.AddListener(Buy);
+        _goldHandler.ChangeGold += UpdateColorButton;
+        _nameText.text = Utils.GetTranslateText(_upgrade.NameRU, _upgrade.NameTR, _upgrade.NameEN);
+        _upgradeImage.sprite = _upgrade.Sprite;
+        UpdateInfoPrice();
+        UpdateColorButton();
+    }
 
     public void Initialize()
     {
@@ -41,17 +47,17 @@ public class Upgrade : MonoBehaviour
 
         _currentLevel = GetCurrentLevel();
 
-
         if (_currentLevel > 0)
         {
             for (int i = 0; i < _currentLevel; i++)
                 _levelImages[i].GetComponent<Image>().color = Color.green;
         }
+    }
 
-        _nameText.text = Utils.GetTranslateText(_upgrade.NameRU, _upgrade.NameTR, _upgrade.NameEN);
-        _upgradeImage.sprite = _upgrade.Sprite;
-        UpdateInfoPrice();
-        UpdateColorButton();
+    private void OnDisable()
+    {
+        _buyButton.onClick.RemoveListener(Buy);
+        _goldHandler.ChangeGold -= UpdateColorButton;
     }
 
     public void Buy()
@@ -81,7 +87,6 @@ public class Upgrade : MonoBehaviour
         if (_currentLevel >= _upgrade.MaxLevel)
             return false;
 
-        Debug.Log(gameObject.name + (_goldHandler.CurrentGold >= _upgrade.Prices[_currentLevel]) + _upgrade.Prices[_currentLevel].ToString());
         return _goldHandler.CurrentGold >= _upgrade.Prices[_currentLevel];
     }
 

@@ -28,6 +28,8 @@ public class GameSettingsSO : ScriptableObject
 
     [Header("Levels")]
     public LevelDataSO[] LevelsData;
+    [Header("Skins")]
+    public Material[] Skins;
 
     public LevelDataSO GetCurrentLevel() => LevelsData[YandexGame.savesData.CurrentLevelIndex];
 
@@ -39,7 +41,7 @@ public class GameSettingsSO : ScriptableObject
             newLevel = Random.Range(0, LevelsData.Length);
         while(newLevel == YandexGame.savesData.CurrentLevelIndex);
 
-        YandexGame.savesData.CurrentLevelIndex = 18;
+        YandexGame.savesData.CurrentLevelIndex = newLevel;
         YandexGame.SaveProgress();
     }
 }

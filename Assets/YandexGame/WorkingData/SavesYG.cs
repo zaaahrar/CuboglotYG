@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace YG
@@ -16,6 +17,7 @@ namespace YG
         public int CurrentLevelIndex = 0;
         public int LeaderboardScore = 0;
         public int LevelsSinceLastAd = 0;
+        public int CurrentSkinIndex = 0;
 
         [Header("Upgrades")]
         public int LevelSpeedUpgrade = 0;
@@ -27,6 +29,11 @@ namespace YG
         public int EffectsVolume = 50;
         public bool IsSoundOn = true;
         public bool IsTutorialCompleted = false;
+
+        [Header("GetSkinsSettings")]
+        public int TotalLevelsComleted = 0;
+        public int TotalAdsWatched = 0;
+        public List<int> UnlockedSkins = new() { 0 };
 
         public SavesYG()
         {

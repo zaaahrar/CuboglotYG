@@ -37,7 +37,7 @@ public class PixelArtBuilder : MonoBehaviour
         _isBuilding = true;
         PixelArtData pixelArt = _levelData.PixelArt;
 
-        if(_cubeCounter.CurrentCubeCount > 0)
+        if (_cubeCounter.CurrentCubeCount > 0)
         {
             for (int i = 0; i < pixelArt.Pixels.Count; i++)
             {
@@ -48,16 +48,57 @@ public class PixelArtBuilder : MonoBehaviour
                     if (pixelArt.Pixels[i].ColorPixel == color)
                     {
                         yield return _blockPlacementDelay;
+
                         float xPosition = pixelArt.Pixels[i].X * pixelArt.PixelSize;
                         float yPosition = pixelArt.Pixels[i].Y * pixelArt.PixelSize;
                         Vector3 position = new Vector3(xPosition, yPosition, _parentCubes.transform.position.z);
+
                         Cube cube = _spawner.SpawnCube(position, _parentCubes);
                         cube.SetColor(color);
                         cube.name = i.ToString();
                         cube.SetKinematic(_isBuilding);
+
+                        Vector3 targetScale = cube.transform.localScale;
+                        cube.transform.localScale = Vector3.zero;
+
+                        cube.transform.rotation = Quaternion.Euler(
+                            UnityEngine.Random.Range(-15f, 15f),
+                            UnityEngine.Random.Range(-15f, 15f),
+                            UnityEngine.Random.Range(-15f, 15f)
+                        );
+
+                        Vector3 startPos = position + Vector3.down * 0.5f;
+                        cube.transform.position = startPos;
+
+                        Sequence appearSequence = DOTween.Sequence();
+
+                        appearSequence.Append(
+                            cube.transform.DOMove(position, 0.35f)
+                                .SetEase(Ease.OutBack)
+                        );
+
+                        appearSequence.Join(
+                            cube.transform.DOScale(targetScale, 0.35f)
+                                .SetEase(Ease.OutBack)
+                        );
+
+                        appearSequence.Join(
+                            cube.transform.DORotateQuaternion(Quaternion.identity, 0.35f)
+                                .SetEase(Ease.OutQuad)
+                        );
+
+                        appearSequence.Append(
+                            cube.transform.DOShakePosition(
+                                    _settings.Duration * 0.5f,
+                                    _settings.PositionStrength * 0.5f,
+                                    _settings.Vibrato)
+                                .SetEase(Ease.OutQuad)
+                        );
+
+                        appearSequence.SetLink(cube.gameObject, LinkBehaviour.KillOnDisable);
+
+
                         _audio.PlayCollectSound();
-                        cube.transform.DOShakePosition(_settings.Duration, _settings.PositionStrength, _settings.Vibrato)
-                            .SetEase(Ease.OutQuad).SetLink(cube.gameObject, LinkBehaviour.KillOnDisable);
                         _builtCubes.Add(cube);
                         _cubeCounter.RemoveColor(color);
                         break;
@@ -130,6 +171,6 @@ public class PixelArtBuilder : MonoBehaviour
             $" darkGreen: {darkGreen}, gray: {gray}, brown: {brown}, yellow: {yellow}," +
             $"red: {red}, orange: {orange}, pink: {pink}, darkPink: {darkPink}, darkBlue: {darkBlue}," +
             $"blue: {blue}");
-        Debug.Log($"total: {green + darkGreen + black + white + gray+ brown+ yellow+red+orange+pink+darkPink+darkBlue+blue}");
+        Debug.Log($"total: {green + darkGreen + black + white + gray + brown + yellow + red + orange + pink + darkPink + darkBlue + blue}");
     }
 }

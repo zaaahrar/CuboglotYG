@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using YG;
 using Zenject;
 
 public class UpgradeScreenView : MonoBehaviour
@@ -18,10 +17,10 @@ public class UpgradeScreenView : MonoBehaviour
         _openButton.onClick.AddListener(Show);
         _closeButton.onClick.AddListener(Hide);
 
-        foreach (Upgrade upgrades in _upgrades)
+        foreach (Upgrade upgrade in _upgrades)
         {
-            upgrades.Initialize();
-            upgrades.PurchaseCompleted += UpdateColorButtonsUpgrades;
+            upgrade.PurchaseCompleted += UpdateColorButtonsUpgrades;
+            upgrade.Initialize();
         }
 
 

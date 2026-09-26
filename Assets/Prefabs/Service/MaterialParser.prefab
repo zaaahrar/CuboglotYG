@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7558228435376094385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7676657311750050601}
+  - component: {fileID: 3029433196740473160}
+  m_Layer: 0
+  m_Name: MaterialParser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7676657311750050601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7558228435376094385}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3029433196740473160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7558228435376094385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a259c4075f403744861f4abb8c11e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _white: {fileID: 2100000, guid: a6258fd508e02f84a830b6d6beba345a, type: 2}
+  _black: {fileID: 2100000, guid: 4ad31139fe063384ca830048042ac0f9, type: 2}
+  _blue: {fileID: 2100000, guid: 4f8cb761625fd7641b4e8fbb2532ff15, type: 2}
+  _yellow: {fileID: 2100000, guid: 077a281ff1a3e3e478b77145c20a5741, type: 2}
+  _red: {fileID: 2100000, guid: e875b4849b2646041a7bc3446ea99562, type: 2}
+  _orange: {fileID: 2100000, guid: c3242cca74ede674090817e86aeb8482, type: 2}
+  _gray: {fileID: 2100000, guid: 78d8a8610f4fad44eb48264a42eaaf66, type: 2}
+  _green: {fileID: 2100000, guid: 603d3f4cb08c0294db3cfcc482a8e036, type: 2}
+  _darkGreen: {fileID: 2100000, guid: 31855424de46fd848ad0fc71bdd36369, type: 2}
+  _brown: {fileID: 2100000, guid: 5f7aec5d7dfbb5641a25bf59445cf79a, type: 2}
+  _pink: {fileID: 2100000, guid: 914899b994832d642b4b652a679d82ea, type: 2}
+  _darkPink: {fileID: 2100000, guid: 14a475c271713fc4a94531721bbf92c9, type: 2}
+  _darkBlue: {fileID: 2100000, guid: fecf9dbd6c0c8d14b9fd14908fe6524c, type: 2}

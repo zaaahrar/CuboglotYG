@@ -14,7 +14,7 @@ public class LevelBuilder : MonoBehaviour
 
     [Header("Spawn Settings")]
     [SerializeField] private float _spawnYPosition = 0.5f;
-    [SerializeField] private float _spawnOffsetFromEdge = 1f;
+    [SerializeField] private float _spawnOffsetFromEdge = 1.5f;
 
     private List<Cube> _spawnedCubes = new List<Cube>();
     private List<Bomb> _spawnedBombs = new List<Bomb>();

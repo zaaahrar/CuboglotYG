@@ -15,7 +15,7 @@ MonoBehaviour:
   LevelNumber: 2
   CubeTypes:
   - CurrentColor: 0
-    CountCubes: 76
+    CountCubes: 77
   - CurrentColor: 6
     CountCubes: 157
   - CurrentColor: 8
@@ -24,7 +24,7 @@ MonoBehaviour:
     CountCubes: 5
   - CurrentColor: 1
     CountCubes: 114
-  TotalCubes: 358
+  TotalCubes: 359
   TotalBombs: 5
-  TimeLimit: 180
+  TimeLimit: 120
   PixelArt: {fileID: 11400000, guid: a4471d8820f883940a196a0b2042105e, type: 2}

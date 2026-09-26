@@ -1,5 +1,4 @@
 using YG;
-using UnityEngine;
 
 public class AD
 {
@@ -15,7 +14,6 @@ public class AD
         if(YandexGame.savesData.LevelsSinceLastAd >= _gameSettingsSO.LevelsBeforeAd)
         {
             YandexGame.FullscreenShow();
-            Debug.Log("AD SHOW");
             YandexGame.savesData.LevelsSinceLastAd = 0;
             YandexGame.SaveProgress();
         }

@@ -42,7 +42,7 @@ public class WinController : MonoBehaviour
         UpdateWinScreen?.Invoke(_cubesCollect, _levelData.TotalCubes, gold, _starsCount);
         ShowWinScreen?.Invoke();
         YandexGame.savesData.LevelsSinceLastAd++;
-        Debug.Log(YandexGame.savesData.LevelsSinceLastAd);
+        YandexGame.savesData.TotalLevelsComleted++;
         YandexGame.SaveProgress();
     }
 

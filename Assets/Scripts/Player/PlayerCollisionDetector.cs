@@ -11,13 +11,13 @@ public class PlayerCollisionDetector : MonoBehaviour
         if(collision.collider.TryGetComponent<Cube>(out Cube cube))
         {
             collision.collider.isTrigger = true;
-            _fallHandler.FallToPoint(cube.transform, _fallPoint);
+            _fallHandler.FallToPoint(cube.transform, _fallPoint.gameObject);
         }
 
         if(collision.collider.TryGetComponent<Bomb>(out Bomb bomb))
         {
             collision.collider.isTrigger = true;
-            _fallHandler.FallToPoint(bomb.transform, _fallPoint);
+            _fallHandler.FallToPoint(bomb.transform, _fallPoint.gameObject);
         }
     }
 }

@@ -12,7 +12,6 @@ public class Spawner : MonoBehaviour
     {
         var gameObject = _diContainer.InstantiatePrefab(_cubePrefab, position, Quaternion.identity, parent);
         Cube cube = gameObject.GetComponent<Cube>();
-        cube.Initialize();
         return cube;
     }
 

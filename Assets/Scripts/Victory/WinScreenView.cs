@@ -65,7 +65,7 @@ public class WinScreenView : MonoBehaviour
 
         if (stars != 0)
         {
-            for(int i = 0; i < stars; i++)
+            for (int i = 0; i < stars; i++)
                 _stars[i].gameObject.SetActive(true);
         }
 

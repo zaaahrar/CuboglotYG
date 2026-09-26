@@ -1,18 +1,26 @@
 {
-    "idSave": 934,
+    "idSave": 1234,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
-    "IsAutoLanguage": true,
-    "Gold": 970,
-    "CurrentLevelIndex": 18,
-    "LeaderboardScore": 0,
-    "LevelsSinceLastAd": 2,
+    "IsAutoLanguage": false,
+    "Gold": 451,
+    "CurrentLevelIndex": 3,
+    "LeaderboardScore": 2,
+    "LevelsSinceLastAd": 1,
+    "CurrentSkinIndex": 6,
     "LevelSpeedUpgrade": 1,
-    "LevelSizeUpgrade": 1,
+    "LevelSizeUpgrade": 0,
     "LevelTimeUpgrade": 2,
-    "MusicVolume": 50,
-    "EffectsVolume": 50,
-    "IsSoundOn": false,
-    "IsTutorialCompleted": true
+    "MusicVolume": 1,
+    "EffectsVolume": 6,
+    "IsSoundOn": true,
+    "IsTutorialCompleted": true,
+    "TotalLevelsComleted": 4,
+    "TotalAdsWatched": 6,
+    "UnlockedSkins": [
+        0,
+        6,
+        7
+    ]
 }

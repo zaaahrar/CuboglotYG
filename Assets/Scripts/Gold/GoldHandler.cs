@@ -7,6 +7,7 @@ public class GoldHandler : MonoBehaviour
     [SerializeField] private int _currentGold;
 
     public event Action<int> UpdateGold;
+    public event Action ChangeGold;
 
     public int CurrentGold
     {
@@ -17,6 +18,7 @@ public class GoldHandler : MonoBehaviour
             YandexGame.savesData.Gold = _currentGold;
             YandexGame.SaveProgress();
             UpdateGold?.Invoke(_currentGold);
+            ChangeGold?.Invoke();
         }
     }
 

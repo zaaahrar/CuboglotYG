@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
-using System;
 
 public class SceneLoader : MonoBehaviour
 {

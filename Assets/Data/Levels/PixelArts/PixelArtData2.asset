@@ -315,6 +315,9 @@ MonoBehaviour:
   - X: -6
     Y: 6
     ColorPixel: 0
+  - X: -5
+    Y: 6
+    ColorPixel: 0
   - X: -4
     Y: 6
     ColorPixel: 0
