@@ -90,9 +90,12 @@ public class CubeCollector : MonoBehaviour
         if(cube == null)
             throw new ArgumentNullException(nameof(cube));
 
-        CurrentCubeCount++;
+        CurrentCubeCount += cube.Ammount;
         _audio.PlayCollectSound();
-        _collectedColors.Add(cube.CurrentColor);
+
+        for(int i = 0; i < cube.Ammount; i++)
+            _collectedColors.Add(cube.CurrentColor);
+        
         Destroy(cube.gameObject);
 
         if (IsCompleteLevel())

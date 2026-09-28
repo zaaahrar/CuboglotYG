@@ -10,12 +10,19 @@ public class FallDetector : MonoBehaviour
     private string LoseDescriptionEN = "You picked up a bomb and lost. Be more careful next time!";
     private string LoseDescriptionTR = "Bir bombayı aldınız ve kaybettiniz. Bir dahaki sefere daha dikkatli olun!";
 
+    private int _health = 3;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent<Cube>(out Cube cube))
             CollectCube?.Invoke(cube);
 
         if(other.TryGetComponent<Bomb>(out Bomb bomb))
-            GameLose?.Invoke(Utils.GetTranslateText(LoseDescriptionRU, LoseDescriptionTR, LoseDescriptionEN), LoseReason.CollectBomb);
+        {
+            _health--;
+
+            if(_health <= 0)
+                GameLose?.Invoke(Utils.GetTranslateText(LoseDescriptionRU, LoseDescriptionTR, LoseDescriptionEN), LoseReason.CollectBomb);
+        }      
     }
 }

@@ -24,10 +24,10 @@ public class ShopSkinsView : MonoBehaviour
     [SerializeField] private string _statusSelectedTR;
     [SerializeField] private string _statusSelectedEN;
 
+    private void Start() => _window.SetActive(false);
+
     private void OnEnable()
     {
-        Hide();
-
         _openWindowButton.onClick.AddListener(Show);
         _closeWindowButton.onClick.AddListener(Hide);
         _selectButton.onClick.AddListener(_shopSkins.UseSkin);

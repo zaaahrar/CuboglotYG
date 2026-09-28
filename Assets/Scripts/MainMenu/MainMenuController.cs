@@ -17,6 +17,7 @@ public class MainMenuController : MonoBehaviour
         _audioController.UpdateSettings(YandexGame.savesData.IsSoundOn,
         YandexGame.savesData.MusicVolume,
         YandexGame.savesData.EffectsVolume);
+
         _audioController.PlaySceneThem(_menuThem);
         SetLanguage();
         YandexGame.GameplayStop();

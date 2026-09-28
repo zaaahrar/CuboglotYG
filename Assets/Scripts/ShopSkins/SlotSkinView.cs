@@ -60,19 +60,21 @@ public class SlotSkinView : MonoBehaviour
             ? _availableButtonColor
             : _unavailableButtonColor;
 
-        _priceText.text = unlockAmount.ToString() + "/" + price.ToString();
         _slider.maxValue = price;
         _descriptionText.text = Utils.GetTranslateText(skinData.DescriptionRU, skinData.DescriptionTR, skinData.DescriptionEN);
         _nameText.text = Utils.GetTranslateText(skinData.NameRU, skinData.NameTR, skinData.NameEN);
 
         if (isUnlocked)
         {
+            _priceText.text = price.ToString() + "/" + price.ToString();
+            unlockAmount = price;
             _buyButton.image.color = _defaultButtonColor;
             _buyButton.interactable = false;
             _statusText.text = Utils.GetTranslateText(skinData.StatusRecivedRU, skinData.StatusRecivedTR, skinData.StatusRecivedEN);
         }
         else
         {
+            _priceText.text = unlockAmount.ToString() + "/" + price.ToString();
             _statusText.text = Utils.GetTranslateText(skinData.StatusNotRecivedRU, skinData.StatusNotRecivedTR, skinData.StatusNotRecivedEN);
         }     
  

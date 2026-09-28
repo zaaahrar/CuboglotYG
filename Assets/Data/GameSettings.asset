@@ -15,13 +15,25 @@ MonoBehaviour:
   Speed: 5
   VictoryPercentage: 0.2
   LookDuration: 0.2
-  MoveDuration: 0.25
+  MoveDuration: 0.5
+  CubesToNextGrowth: 03000000090000000f000000
+  CapacitysPlayer: 0100000003000000050000000a000000
+  DurationGrow: 0.5
+  GrowthStep: 0.2
   MinDistanceBetweenCubes: 1.5
+  MinDistanceFromPlayer: 2
   MaxAttempts: 100
+  Denomiantions: 0a000000050000000300000001000000
+  BaseScale: 40
+  ScalePerUnit: 4
+  MinCubesPerDenomination: 3
+  SpawnPositionPlayer: {x: 0, y: 3.8, z: 0}
+  MinFriction: 0.5
+  MaxFriction: 1
   PostBuildDelay: 2
   BlockPlacementDelay: 0.02
   ExplodeForce: 25
-  Duration: 0.5
+  DurationBuildPixel: 0.5
   PositionStrength: 0.3
   Vibrato: 10
   LevelsBeforeAd: 3

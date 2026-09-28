@@ -17,6 +17,6 @@ MonoBehaviour:
   - CurrentColor: 10
     CountCubes: 1
   TotalCubes: 1
-  TotalBombs: 4
-  TimeLimit: 120
+  TotalBombs: 10
+  TimeLimit: 15
   PixelArt: {fileID: 11400000, guid: 56d733b19f1ec7f4595fe1e31463d999, type: 2}

@@ -140,4 +140,3 @@ Material:
     - _VtxTintGColor: {r: 1, g: 0.9676372, b: 0, a: 1}
     - _VtxTintRColor: {r: 0.068841234, g: 0.8584906, b: 0.12714379, a: 1}
   m_BuildTextureStacks: []
-  m_AllowLocking: 1

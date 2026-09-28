@@ -6,6 +6,7 @@ using Zenject;
 public class SlotSkin : MonoBehaviour
 {
     [Inject] private AudioController _audio;
+    [Inject] private GoldHandler _goldHandler;
     [SerializeField] private SlotSkinData _slotSkinData;
     [SerializeField] private ShopSkins _shop;
 
@@ -42,9 +43,9 @@ public class SlotSkin : MonoBehaviour
         {
             InfoUpdated?.Invoke(GetUnlockAmount(_slotSkinData.UnlockType), _slotSkinData.Price, _isUnlocked);
             _isUnlocked = true;
-            
-            if(_slotSkinData.UnlockType == SkinUnlockType.Coins)
-                YandexGame.savesData.Gold -= _slotSkinData.Price;
+
+            if (_slotSkinData.UnlockType == SkinUnlockType.Coins)
+                _goldHandler.SpendGold(_slotSkinData.Price);
 
             YandexGame.savesData.UnlockedSkins.Add(_slotSkinData.SkinIndex);
             YandexGame.SaveProgress();

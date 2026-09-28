@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     private LevelDataSO _levelData;
     private WaitForSeconds _second;
     private int _timerDuration;
-    private int _tickStartTime = 10;
+    private int _tickStartTime = 5;
 
     public event Action<int> UpdateTimer;
     public event Action TimerFinished;

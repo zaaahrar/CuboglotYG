@@ -89,7 +89,7 @@ public class PixelArtBuilder : MonoBehaviour
 
                         appearSequence.Append(
                             cube.transform.DOShakePosition(
-                                    _settings.Duration * 0.5f,
+                                    _settings.DurationBuildPixel * 0.5f,
                                     _settings.PositionStrength * 0.5f,
                                     _settings.Vibrato)
                                 .SetEase(Ease.OutQuad)

@@ -16,7 +16,7 @@ MonoBehaviour:
   NameEN: Timer
   NameTR: Zaman
   Upgrade: 0
-  MaxLevel: 7
-  Prices: c8000000f4010000e2040000d0070000be0a0000ac0d000094110000
+  MaxLevel: 4
+  Prices: f4010000e8030000d6060000b80b0000
   StatValue: 5
   Sprite: {fileID: 21300000, guid: 40e590710cf3bea418a40083b69b1db3, type: 3}

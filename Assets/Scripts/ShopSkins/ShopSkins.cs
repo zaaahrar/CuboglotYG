@@ -8,6 +8,7 @@ using Zenject;
 public class ShopSkins : MonoBehaviour
 {
     [Inject] private GameSettingsSO _gameSettings;
+    [Inject] private AudioController _audio;
     [SerializeField] private List<SlotSkin> _slots;
     [SerializeField] private SimpleScrollSnap _scrollSnap;
     [SerializeField] private ErrorWindowController _errorController;
@@ -73,6 +74,7 @@ public class ShopSkins : MonoBehaviour
         {
             YandexGame.savesData.TotalAdsWatched++;
             YandexGame.SaveProgress();
+            _audio.PlaySuccessfulActionSound();
 
             foreach (SlotSkin slot in _slots)
                 slot.Refresh();

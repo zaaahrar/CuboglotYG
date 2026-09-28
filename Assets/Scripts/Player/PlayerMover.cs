@@ -7,16 +7,20 @@ public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private UpgradeSO _speedUpgrade;
-    [SerializeField] private Joystick _joystick;
     [Inject] private GameSettingsSO _gameSettings;
 
     private IInputProvider _inputProvider;
     private float _currentSpeed;
+    private Joystick _joystick;
 
-    private void Start()
+    public void Init(Joystick joystick)
     {
         _currentSpeed = _gameSettings.Speed
-        + YandexGame.savesData.LevelSpeedUpgrade * _speedUpgrade.StatValue;
++ YandexGame.savesData.LevelSpeedUpgrade * _speedUpgrade.StatValue;
+        _joystick = joystick;
+
+        if (_joystick == null)
+            return;
 
         if (YandexGame.EnvironmentData.isMobile && _joystick != null)
         {
@@ -28,8 +32,6 @@ public class PlayerMover : MonoBehaviour
             _inputProvider = new DesktopInputProvider();
             _joystick.gameObject.SetActive(false);
         }
-            
-
     }
 
     private void FixedUpdate() => Move();

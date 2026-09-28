@@ -1,5 +1,6 @@
 using UnityEngine;
 using Zenject;
+using System;
 
 public class Cube : MonoBehaviour
 {
@@ -8,7 +9,22 @@ public class Cube : MonoBehaviour
     [Inject] private GameSettingsSO _gameSettings;
     [Inject] private MaterialParser _materialParser;
 
+    public event Action<int> AmmountChanged;
+
+    private int _amount = 1;
+
     public ColorCube CurrentColor { get; private set; }
+    public int Ammount
+    {
+        get => _amount;
+        private set
+        {
+            _amount = value;
+            AmmountChanged?.Invoke(_amount);
+        }
+    }
+
+    public void SetAmount(int value) => Ammount = value;
 
     public void SetColor(ColorCube color)
     {

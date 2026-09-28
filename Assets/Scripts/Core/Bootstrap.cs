@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Zenject;
 using YG;
+using Cinemachine;
 
 public class Bootstrap : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private Timer _timer;
     [SerializeField] private TimerView _timerView;
     [SerializeField] private Tutorial _tutorial;
-    [SerializeField] private SkinSwitcher _skinSwitcher;
 
     [Inject] private AudioController _audio;
     [Inject] private GameSettingsSO _gameSettings;
@@ -39,6 +39,8 @@ public class Bootstrap : MonoBehaviour
 
     private IEnumerator StartingGame(LevelDataSO levelData)
     {
+        //YandexGame.ResetSaveProgress();
+        //YandexGame.SaveProgress();
         _loadingScreen.Initialize();
         _sceneLoader.Initialize();
         _loseController.Initialize();
@@ -57,7 +59,6 @@ public class Bootstrap : MonoBehaviour
         _loadingScreen.ChangeSlider(100);
         yield return _delayLoading;
         _loadingScreen.Hide();
-        _skinSwitcher.SwitchSkin();
         _ad.TryShowFullscreenAd();
         _audio.PlaySceneThem(_gameplayThem);
         TryStartTutorial();

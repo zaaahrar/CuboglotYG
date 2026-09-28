@@ -23,6 +23,6 @@ MonoBehaviour:
   - CurrentColor: 0
     CountCubes: 17
   TotalCubes: 244
-  TotalBombs: 4
-  TimeLimit: 80
+  TotalBombs: 6
+  TimeLimit: 30
   PixelArt: {fileID: 11400000, guid: 7dec1c8c11cbbed488b7133c8b7d16d0, type: 2}

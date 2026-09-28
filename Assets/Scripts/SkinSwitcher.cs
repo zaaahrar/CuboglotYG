@@ -7,6 +7,8 @@ public class SkinSwitcher : MonoBehaviour
     [Inject] private GameSettingsSO _gameSettings;
     [SerializeField] private MeshRenderer _playerSkin;
 
+    private void OnEnable() => SwitchSkin();
+
     public void SwitchSkin()
     {
         if (YandexGame.savesData.CurrentSkinIndex < _gameSettings.Skins.Length)
