@@ -17,6 +17,8 @@ public class LevelBuilder : MonoBehaviour
     [Header("Spawn Settings")]
     [SerializeField] private float _spawnYPosition = 0.5f;
     [SerializeField] private float _spawnOffsetFromEdge = 1.5f;
+    [SerializeField] private Collider _groundCollider;
+    [SerializeField] private float _raycastHeight = 50f;
 
     private List<Cube> _spawnedCubes = new List<Cube>();
     private List<Bomb> _spawnedBombs = new List<Bomb>();
@@ -114,15 +116,32 @@ public class LevelBuilder : MonoBehaviour
 
     private Vector3 GetRandomPointOnGround()
     {
-        Vector3 groundSize = _groundBounds.size;
-        float randomX = UnityEngine.Random.Range(
-            _groundBounds.min.x + _spawnOffsetFromEdge,
-            _groundBounds.max.x - _spawnOffsetFromEdge);
-        float randomZ = UnityEngine.Random.Range(
-            _groundBounds.min.z + _spawnOffsetFromEdge,
-            _groundBounds.max.z - _spawnOffsetFromEdge);
+        Bounds b = _groundCollider.bounds;
+        b.Expand(-_spawnOffsetFromEdge);
 
-        return new Vector3(randomX, _spawnYPosition, randomZ);
+        float randomX = UnityEngine.Random.Range(b.min.x, b.max.x);
+        float randomZ = UnityEngine.Random.Range(b.min.z, b.max.z);
+
+        for (int i = 0; i < 50; i++)
+        {
+            Vector3 candidate = new Vector3(randomX, b.center.y, randomZ);
+            Vector3 closest = _groundCollider.ClosestPoint(candidate);
+
+            if ((closest - candidate).sqrMagnitude < 0.001f)
+                return new Vector3(candidate.x, _spawnYPosition, candidate.z);
+        }
+
+        return new Vector3(b.center.x, _spawnYPosition, b.center.z);
+
+        //Vector3 groundSize = _groundBounds.size;
+        //float randomX = UnityEngine.Random.Range(
+        //    _groundBounds.min.x + _spawnOffsetFromEdge,
+        //    _groundBounds.max.x - _spawnOffsetFromEdge);
+        //float randomZ = UnityEngine.Random.Range(
+        //    _groundBounds.min.z + _spawnOffsetFromEdge,
+        //    _groundBounds.max.z - _spawnOffsetFromEdge);
+
+        //return new Vector3(randomX, _spawnYPosition, randomZ);
     }
 
     private bool IsPositionValid(Vector3 position)
